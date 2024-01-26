@@ -11,7 +11,7 @@
     --color-white: hsl(252, 30%, var(--white-color-lightness));
     --color-light: hsl(252, 30%, var(--light-color-lightness));
     --color-dark: hsl(252, 30%, var(--dark-color-lightness));
-    --color-black: hsl(252, 30%, 10%);
+    
     /* for buttons and stuff */
     --color-primary: hsl(var(--primary-color-hue), 34%, 23%);
     --color-primary-hovered: hsl(232, 55%, 21%);
@@ -620,7 +620,31 @@ body{
 .f-right{ float: right !important;}
 .f-left{ float: left !important;}
 .o-hidden{overflow: hidden !important;}
+.o-x-scroll{overflow-y: scroll !important;}
+    
+/* doubleshricked*/
+      /* width */
+    .scroll-double-shrinked::-webkit-scrollbar {
+      width: 4px;
+      background-color: #fafafa !important;
+      margin-top: 1rem !important;
+      }
 
+      /* Track */
+      .scroll-double-shrinked::-webkit-scrollbar-track {
+      box-shadow: inset 0 0 2px rgb(41, 41, 41);
+      border-radius: 5px;
+      }
+
+      /* Handle */
+      .scroll-double-shrinked::-webkit-scrollbar-thumb {
+      background: grey;
+      border-radius: 4px;
+      margin-top: 4px;
+      margin-bottom: 4px;
+      }
+.o-y-hidden{overflow-y: hidden !important;}
+.o-x-hidden{overflow-y: hidden !important;}
 /* =================================================================
 MEDIA QUERIES FOR SMALL LAPTOPS AND TABLETS
 ================================================================= */

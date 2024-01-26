@@ -23,8 +23,8 @@
                         </div>
                         <div class="flex-centered menu-items bold-2">
                             <span class="font-2-5 px-lg-3 active"><a href="#home" class="style-none">Home</a></span>
-                            <span class="font-2-5 px-lg-3 home"><a href="#about" class="style-none">About Me</a></span>
-                            <span class="font-2-5 px-lg-3" ><a href="#skills" class="style-none">Skills</a></span>
+                            <span class="font-2-5 px-lg-3"><a href="#about" class="style-none">About Me</a></span>
+                            <span class="font-2-5 px-lg-3"><a href="#skills" class="style-none">Skills</a></span>
                             <span class="font-2-5 px-lg-3"><a href="#projects" class="style-none">Projects</a></span>
                             <span class="font-2-5 px-lg-3"><a href="#contact" class="style-none">Contact Me</a></span>
                             <span class="font-2-5 px-lg-3"><a href="./blogs.html" class="style-none">Blogs</a></span>
@@ -56,10 +56,22 @@
                     </div> -->
                     <div class="block menu-items bold-2">
                         <span class="hovereble-link block py-3 px-lg-3 active"><a href="./index.html" class="style-none">Home</a></span>
-                        <span class="hovereble-link block py-3 px-lg-3 home">About Me</span>
-                        <span class="hovereble-link block py-3 px-lg-3">Skills</span>
-                        <span class="hovereble-link block py-3 px-lg-3">Projects</span>
-                        <span class="hovereble-link block py-3 px-lg-3">Contact Me</span>
+                        <span class="hovereble-link block py-3 px-lg-3"><a href="./index.html#about" class="style-none">
+                            About Me
+                        </a>
+                    </span>
+                    <span class="hovereble-link block py-3 px-lg-3"><a href="./index.html#skills" class="style-none">
+                        Skills
+                        </a>
+                    </span>
+                    <span class="hovereble-link block py-3 px-lg-3"><a href="./index.html#projects" class="style-none">
+                           Projects
+                        </a>
+                    </span>
+                    <span class="hovereble-link block py-3 px-lg-3"><a href="./index.html#contact" class="style-none">
+                        Contact Me
+                        </a>
+                    </span>
                         <span class="hovereble-link block py-3 px-lg-3"><a href="./blogs.html" class="style-none">Blogs</a></span>
                         <div class="block px-5">
                             <button class="btn-red py-lg-3 px-lg-3 br-2 my-4" style="width: 100%;">Login
@@ -76,7 +88,7 @@
             </div>
             </section>
             <!-- home page -->
-            <section class="pt-lg-4 mt-lg-5 relative o-hidden">
+            <section class="pt-lg-4 mt-lg-5 relative o-hidden" id="home">
                 <div class="flex-centered mt-lg-1">
                     <div class="double-grid">
                         <div class=" relative welcome-text block mt-lg-4 pt-lg-4 font-2">
@@ -218,8 +230,8 @@
         </section>
     </section>
     <!-- portfolio -->
-    <section class="block pt-lg-4 px-0" id="projects">
-        <span class="block text-center font-5 bold-2 py-lg-3">My <span class="clr-red">Portfolio</span></span>
+    <section class="block px-0 pt-lg-5" id="projects"> 
+        <span class="block text-center font-5 bold-2 pb-lg-3">My <span class="clr-red">Portfolio</span></span>
         <span class="block text-center font-2-5 bold pb-lg-4">A selected number of my projects</span></span>
         <div class="container px-5 px-md-5 px-lg-5 mt-lg-4">
             <div class="flex py-lg-3 my-lg-3">
@@ -298,7 +310,7 @@
     </div>
     </section>
     <section>
-        <div class="container">
+        <div class="container" id="contact">
             <span class="block text-center font-5 bold-2 pt-lg-5 mt-lg-2">Contact <span class="clr-red">Me</span></span>
             <div class="double-grid-responsive mt-lg-5">
                 <div class="block" style="height: 27rem; width: 100%;">
@@ -319,11 +331,11 @@
                         <span class="inline-block px-lg-2">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-twitter" viewBox="0 0 16 16">
                                 <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334q.002-.211-.006-.422A6.7 6.7 0 0 0 16 3.542a6.7 6.7 0 0 1-1.889.518 3.3 3.3 0 0 0 1.447-1.817 6.5 6.5 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.32 9.32 0 0 1-6.767-3.429 3.29 3.29 0 0 0 1.018 4.382A3.3 3.3 0 0 1 .64 6.575v.045a3.29 3.29 0 0 0 2.632 3.218 3.2 3.2 0 0 1-.865.115 3 3 0 0 1-.614-.057 3.28 3.28 0 0 0 3.067 2.277A6.6 6.6 0 0 1 .78 13.58a6 6 0 0 1-.78-.045A9.34 9.34 0 0 0 5.026 15"/>
-                              </svg>
+                            </svg>
                         </span>
                     </div>
                     <div class="flex-centered">
-                        <form class="block" style="min-width: 20rem;">
+                        <form class="block px-lg-5 px-md-4 px-4" style="width: 100%">
                             <label class="block clr-red bold-1 font-2 pt-lg-3">Email:</label>
                             <input class=" py-lg-3 br-3 font-3 px-lg-3 form-control block my-lg-3" placeholder="Enter email"/>
                             <label class="block clr-red bold-1 font-2 pt-lg-3">Message:</label>
