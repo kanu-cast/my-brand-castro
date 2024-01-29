@@ -4,7 +4,15 @@
 var root = document.querySelector(':root');
 var menu = document.querySelector('.hamburger');
 var hiddenMenu = document.querySelector('.hidden-menu');
+var menuItems = document.querySelectorAll('.hoverable-link');
 let show = false;
+
+// remove active class from all menu items
+const changeActiveItem = () =>{
+    menuItems.forEach(item=>{
+        item.classList.remove('active');
+    })
+}
 
 const toggleMenu = ()=>{
     show = !show
@@ -24,7 +32,15 @@ const showMenu=()=>{
 }
 menu.addEventListener('click', ()=>{
     toggleMenu();
-})
+});
+menuItems.forEach(item =>{
+    item.addEventListener('click', ()=>{
+        show = false;
+        changeActiveItem();
+        item.classList.add('active');
+        hideMenu();
+    });
+});
 // =============== BACKGROUND CUSTOMIZATION ==================
 
 const Bg1 = document.querySelector('.switcher .bg-1');
@@ -63,10 +79,11 @@ Bg2.addEventListener('click', () =>{
     Bg2.classList.add('active');
     // remove active class from the other button
     Bg1.classList.remove('active');
-    //Bg3.classList.remove('active');
     changeBg();
 
 });
+
+// =========================== tracking background theme via local storage and invoking ============================
 
 (function () {
     const strorageTheme = localStorage.getItem('theme');
@@ -87,7 +104,6 @@ Bg2.addEventListener('click', () =>{
         Bg2.classList.add('active');
         // remove active class from the other button
         Bg1.classList.remove('active');
-        //Bg3.classList.remove('active');
         changeBg();
     }
 })();
