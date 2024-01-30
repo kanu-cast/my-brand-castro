@@ -107,3 +107,21 @@ Bg2.addEventListener('click', () =>{
         changeBg();
     }
 })();
+
+
+// ===================== CONTACT FORM VALIDATION ============================
+
+/// state
+
+let email = '';
+let message = '';
+
+/// email validation here
+const checkIsEmail = (email) =>{
+    return String(email)
+        .toLowerCase()
+        .match(/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/);
+}
+
+var emailForm = document.querySelector('.email');
+var emailErrorBox = document.querySelector('.email-error-box');
