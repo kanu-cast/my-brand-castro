@@ -125,3 +125,17 @@ const checkIsEmail = (email) =>{
 
 var emailForm = document.querySelector('.email');
 var emailErrorBox = document.querySelector('.email-error-box');
+
+//// eventlisteners
+emailForm.addEventListener('change', function(evt){
+    console.log('this is log', evt.target.value);
+    const { value } = evt.target;
+    if(!checkIsEmail(value)){
+        emailForm.classList.add('b-2px-red');
+        emailErrorBox.classList.remove('d-lg-none');
+        return;
+    }
+    emailForm.classList.remove('b-2px-red');
+    emailErrorBox.classList.add('d-lg-none');
+    return email = checkIsEmail(value)[0];
+});

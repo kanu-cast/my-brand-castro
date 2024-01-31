@@ -18,4 +18,4 @@ const changePreview = (e)=>{
         reader.readAsDataURL(e.target.files[0])
     }
 };
-imgInput.addEventListener('change', changePreview);
+// imgInput.addEventListener('change', changePreview);

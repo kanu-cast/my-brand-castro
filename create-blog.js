@@ -1,7 +1,5 @@
-var textEditor = document.querySelector('.editor');
+// var text = tinyMCE.get('myeditorid').getContent();
+// console.log('this is content', text);
+// var text = tinymce.get('mytextarea');
+// console.log('this is content', text); 
 
-textEditor.addEventListener('change', (evt)=>{
-    alert('yup');
-    const { value } = evt.target;
-    console.log('this is event value', value);
-})

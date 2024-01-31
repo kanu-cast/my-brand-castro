@@ -7,10 +7,24 @@
         <title>My Brand | Create</title>
         <link rel="stylesheet" href="./styles/style.css">
         <!--Include the JS & CSS-->
-        <link rel="stylesheet" href="./richtexteditor/richtexteditor/rte_theme_default.css" />
-        <script type="text/javascript" src="./richtexteditor/richtexteditor/rte.js"></script>
-        <script type="text/javascript" src='./richtexteditor/richtexteditor/plugins/all_plugins.js'></script>
-    </head>
+
+        <script src="https://cdn.tiny.cloud/1/cqf2b3qdlkhbdlc5vewb2q3fti092hzpuy2fjn210mlpxxh9/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+        <!-- Place the following <script> and <textarea> tags your HTML's <body> -->
+        <script>
+        tinymce.init({
+            selector: 'textarea',
+            plugins: 'ai tinycomments mentions anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed permanentpen footnotes advtemplate advtable advcode editimage tableofcontents mergetags powerpaste tinymcespellchecker autocorrect a11ychecker typography inlinecss',
+            toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | align lineheight | tinycomments | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
+            tinycomments_mode: 'embedded',
+            tinycomments_author: 'Author name',
+            mergetags_list: [
+            { value: 'First.Name', title: 'First Name' },
+            { value: 'Email', title: 'Email' },
+            ],
+            ai_request: (request, respondWith) => respondWith.string(() => Promise.reject("See docs to implement AI Assistant")),
+        });
+        </script>
+    </head>                                             
         <body class="py-0 my-0 my-md-0 py-md-0 my-lg-0 py-lg-0">
          <!-- navigation bar -->
          <div class=" nav px-lg-3 box-shadow py-lg-2 d-block d-md-none d-lg-none">
@@ -107,9 +121,9 @@
                     <div class="wrapper px-lg-4" style="height: 100%;">
                         <div class="card-stable br-2 box-shadow px-4 px-md-4 px-lg-5 py-4 py-md-4 py-lg-5" style="height: 100%;">
                             <div class="block pt-lg-4 ">
-                                <div id="div_editor1" class="editor" style="width: 100%">
-                                  
-                                </div>
+                                <form method="post">
+                                    <textarea id="mytextarea">Hello, World!</textarea>
+                                  </form>
                             </div>
                             <div class="block py-lg-4 " style="min-height: 4rem;">
                                 <button class="pointer f-right btn-red  py-3 py-md-3 py-lg-3 px-4 px-md-4 px-lg-4 br-2">Publish Blog
@@ -132,8 +146,11 @@
         </section>
             <!-- ======== javascript ========== -->
             <script>
-                var editor1 = new RichTextEditor("#div_editor1");
-                //editor1.setHTMLCode("Use inline HTML or setHTMLCode to init the default content.");
+                function fetchContent(){
+                    var myContent = tinymce.activeEditor.getContent();
+                    console.log('this is content', myContent);
+                }
+                fetchContent();
             </script>
             <script src="./create-blog.js"></script>
             <script src="./createEditBlog.js"></script>
