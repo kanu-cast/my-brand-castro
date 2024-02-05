@@ -150,6 +150,12 @@ body{
     gap:2rem;
     align-items: top;
 }
+.small-big-grid{
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    gap:1rem;
+    align-items: top; 
+}
 .big-small-grid{
     display: grid;
     grid-template-columns: 5fr 4fr;
@@ -621,7 +627,7 @@ body{
 .f-left{ float: left !important;}
 .o-hidden{overflow: hidden !important;}
 .o-x-scroll{overflow-y: scroll !important;}
-    
+.opacity-0{opacity: 0 !important;}
 /* doubleshricked*/
       /* width */
     .scroll-double-shrinked::-webkit-scrollbar {

@@ -11,3 +11,4 @@ home.addEventListener('click', function(){
     home.classList.add('active');
     window.scrollTo( 0, 100);
 });
+

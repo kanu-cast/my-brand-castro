@@ -14,7 +14,7 @@ const checkIsEmail = (email) =>{
         .match(/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/);
 }
 
-signinForm.addEventListener('change', function(evt){
+signinForm.addEventListener('keyup', function(evt){
     // alert('yup');
     console.log('this is log', evt.target.value);
     const { value } = evt.target;

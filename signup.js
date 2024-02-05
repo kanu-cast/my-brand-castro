@@ -31,7 +31,7 @@ var lastNameForm = document.querySelector('.last_name');
 var lastNameErrorBox = document.querySelector('.lastName-error-box');
 
 //// eventlisteners
-emailForm.addEventListener('change', function(evt){
+emailForm.addEventListener('keyup', function(evt){
     console.log('this is log', evt.target.value);
     const { value } = evt.target;
     if(!checkIsEmail(value)){
@@ -44,7 +44,7 @@ emailForm.addEventListener('change', function(evt){
     return email = checkIsEmail(value)[0];
 });
 //// eventlisteners
-firstNameForm.addEventListener('change', function(evt){
+firstNameForm.addEventListener('keyup', function(evt){
     console.log('this is log', evt.target.value);
     const { value } = evt.target;
     if(!validateName(value)){
@@ -57,7 +57,7 @@ firstNameForm.addEventListener('change', function(evt){
     return firstName = value;
 });
 //// eventlisteners
-lastNameForm.addEventListener('change', function(evt){
+lastNameForm.addEventListener('keyup', function(evt){
     console.log('this is log', evt.target.value);
     const { value } = evt.target;
     if(!validateName(value)){

@@ -120,18 +120,48 @@
                 <div class="block px-0 px-lg-4 pt-lg-4 pt-4 pt-md-4">
                     <div class="wrapper px-lg-4" style="height: 100%;">
                         <div class="card-stable br-2 box-shadow px-4 px-md-4 px-lg-5 py-4 py-md-4 py-lg-5" style="height: 100%;">
-                            <div class="block pt-lg-4 ">
-                                <form method="post">
-                                    <textarea id="mytextarea">Hello, World!</textarea>
-                                  </form>
-                            </div>
-                            <div class="block py-lg-4 " style="min-height: 4rem;">
-                                <button class="pointer f-right btn-red  py-3 py-md-3 py-lg-3 px-4 px-md-4 px-lg-4 br-2">Publish Blog
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-up" viewBox="0 0 16 16">
-                                        <path fill-rule="evenodd" d="M3.5 6a.5.5 0 0 0-.5.5v8a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5v-8a.5.5 0 0 0-.5-.5h-2a.5.5 0 0 1 0-1h2A1.5 1.5 0 0 1 14 6.5v8a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 14.5v-8A1.5 1.5 0 0 1 3.5 5h2a.5.5 0 0 1 0 1z"/>
-                                        <path fill-rule="evenodd" d="M7.646.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 1.707V10.5a.5.5 0 0 1-1 0V1.707L5.354 3.854a.5.5 0 1 1-.708-.708z"/>
-                                      </svg>
-                                </button>
+                            <div class="block py-lg-5">
+                                <form method="post" name="blogForm">
+                                    <div class="block">
+                                        <label class="font-1 bold">Title:*</label>
+                                        <input type="text" name="blogTitle" class="font-3 bold-1 br-2 form-control py-lg-3 px-lg-3 title" style="height: 2rem;"/>
+                                        <div class="block text-right pt-lg-2" style="height: 14px;">
+                                            <div class="font-0 clr-red d-lg-none title-error-box">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-exclamation-circle-fill" viewBox="0 0 16 16">
+                                                    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4m.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2"/>
+                                                </svg>
+                                                Title can't be Empty
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="block b-2px-dashed-hue o-hidden my-lg-4 relative py-lg-0 img-cont" style="height: auto; width: 100%;">
+                                        <input type="file" name="blogImage" class="image-selector opacity-0 absolute pointer" style="height: 100%; width: 100%;" />
+                                        <img src="./assets/upload.png" class="image-preview my-lg-0 img-fit" style="height: auto; width: 100%;"/>
+                                    </div>
+                                    <div class="block text-right pt-lg-2" style="height: 14px;">
+                                        <div class="font-0 clr-red d-lg-none image-error-box">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-exclamation-circle-fill" viewBox="0 0 16 16">
+                                                <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4m.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2"/>
+                                            </svg>
+                                            Invalid Email input
+                                        </div>
+                                    </div>
+                                    <textarea id="mytextarea" name="blogBody"></textarea>
+                                    <div class="block text-right pt-lg-2" style="height: 14px;">
+                                        <div class="font-0 clr-red d-lg-none textarea-error-box">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-exclamation-circle-fill" viewBox="0 0 16 16">
+                                                <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4m.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2"/>
+                                            </svg>
+                                            Body can't be Empty
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="pointer f-right btn-red  py-3 py-md-3 py-lg-3 px-4 px-md-4 px-lg-4 mt-lg-4 br-2">Publish Blog
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-up" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd" d="M3.5 6a.5.5 0 0 0-.5.5v8a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5v-8a.5.5 0 0 0-.5-.5h-2a.5.5 0 0 1 0-1h2A1.5 1.5 0 0 1 14 6.5v8a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 14.5v-8A1.5 1.5 0 0 1 3.5 5h2a.5.5 0 0 1 0 1z"/>
+                                            <path fill-rule="evenodd" d="M7.646.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 1.707V10.5a.5.5 0 0 1-1 0V1.707L5.354 3.854a.5.5 0 1 1-.708-.708z"/>
+                                        </svg>
+                                    </button>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -145,15 +175,8 @@
             </footer>
         </section>
             <!-- ======== javascript ========== -->
-            <script>
-                function fetchContent(){
-                    var myContent = tinymce.activeEditor.getContent();
-                    console.log('this is content', myContent);
-                }
-                fetchContent();
-            </script>
+            <script src="./index.js"></script>
             <script src="./create-blog.js"></script>
             <script src="./createEditBlog.js"></script>
-            <script src="./index.js"></script>
     </body>
 </html>
