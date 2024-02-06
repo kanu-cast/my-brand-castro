@@ -5,25 +5,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>My Brand | Create</title>
-        <link rel="stylesheet" href="./styles/style.css">
-        <!--Include the JS & CSS-->
 
-        <script src="https://cdn.tiny.cloud/1/cqf2b3qdlkhbdlc5vewb2q3fti092hzpuy2fjn210mlpxxh9/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
-        <!-- Place the following <script> and <textarea> tags your HTML's <body> -->
-        <script>
-        tinymce.init({
-            selector: 'textarea',
-            plugins: 'ai tinycomments mentions anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed permanentpen footnotes advtemplate advtable advcode editimage tableofcontents mergetags powerpaste tinymcespellchecker autocorrect a11ychecker typography inlinecss',
-            toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | align lineheight | tinycomments | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
-            tinycomments_mode: 'embedded',
-            tinycomments_author: 'Author name',
-            mergetags_list: [
-            { value: 'First.Name', title: 'First Name' },
-            { value: 'Email', title: 'Email' },
-            ],
-            ai_request: (request, respondWith) => respondWith.string(() => Promise.reject("See docs to implement AI Assistant")),
-        });
-        </script>
+        <!--Including the texteditor JS & CSS-->
+        <link rel="stylesheet" href="./richtexteditor/richtexteditor/rte_theme_default.css" />
+        <script type="text/javascript" src="./richtexteditor/richtexteditor/rte.js"></script>
+        <script type="text/javascript" src='./richtexteditor/richtexteditor/plugins/all_plugins.js'></script>
+        <link rel="stylesheet" href="./styles/style.css">
+        
     </head>                                             
         <body class="py-0 my-0 my-md-0 py-md-0 my-lg-0 py-lg-0">
          <!-- navigation bar -->
@@ -120,12 +108,12 @@
                 <div class="block px-0 px-lg-4 pt-lg-4 pt-4 pt-md-4">
                     <div class="wrapper px-lg-4" style="height: 100%;">
                         <div class="card-stable br-2 box-shadow px-4 px-md-4 px-lg-5 py-4 py-md-4 py-lg-5" style="height: 100%;">
-                            <div class="block py-lg-5">
+                            <div class="block pb-lg-5">
                                 <form method="post" name="blogForm">
                                     <div class="block">
                                         <label class="font-1 bold">Title:*</label>
                                         <input type="text" name="blogTitle" class="font-3 bold-1 br-2 form-control py-lg-3 px-lg-3 title" style="height: 2rem;"/>
-                                        <div class="block text-right pt-lg-2" style="height: 14px;">
+                                        <div class="block text-right pt-lg-2 mb-lg-4" style="height: 14px;">
                                             <div class="font-0 clr-red d-lg-none title-error-box">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-exclamation-circle-fill" viewBox="0 0 16 16">
                                                     <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4m.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2"/>
@@ -134,19 +122,21 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="block b-2px-dashed-hue o-hidden my-lg-4 relative py-lg-0 img-cont" style="height: auto; width: 100%;">
+                                    <div class="block b-2px-dashed-hue o-hidden mt-lg-0 relative py-lg-0 img-cont" style="height:auto; width:100%">
                                         <input type="file" name="blogImage" class="image-selector opacity-0 absolute pointer" style="height: 100%; width: 100%;" />
-                                        <img src="./assets/upload.png" class="image-preview my-lg-0 img-fit" style="height: auto; width: 100%;"/>
+                                        <img src="./assets/upload.png" class="image-preview img-fit block " style="height: auto; width: 100%;"/>
                                     </div>
-                                    <div class="block text-right pt-lg-2" style="height: 14px;">
+                                    <div class="block text-right pt-lg-2 mb-lg-4" style="height: 14px;">
                                         <div class="font-0 clr-red d-lg-none image-error-box">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-exclamation-circle-fill" viewBox="0 0 16 16">
                                                 <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4m.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2"/>
                                             </svg>
-                                            Invalid Email input
+                                            Image can't be Empty
                                         </div>
                                     </div>
-                                    <textarea id="mytextarea" name="blogBody"></textarea>
+                                    <div id="div_editor1" class="editor relative">
+                                      
+                                    </div>
                                     <div class="block text-right pt-lg-2" style="height: 14px;">
                                         <div class="font-0 clr-red d-lg-none textarea-error-box">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-exclamation-circle-fill" viewBox="0 0 16 16">
@@ -174,9 +164,14 @@
                 </div>
             </footer>
         </section>
-            <!-- ======== javascript ========== -->
-            <script src="./index.js"></script>
-            <script src="./create-blog.js"></script>
-            <script src="./createEditBlog.js"></script>
+        
+        <script>
+            var editor1 = new RichTextEditor("#div_editor1");
+            //editor1.setHTMLCode("Use inline HTML or setHTMLCode to init the default content.");
+        </script>
+        <!-- ======== javascript ========== -->
+        <script src="./index.js"></script>
+        <script src="./create-blog.js"></script>
+        <script src="./createEditBlog.js"></script>
     </body>
 </html>

@@ -1,7 +1,10 @@
-/////// state
-let blogTitle = '';
-let blogImage = '';
-let blogBody = '';
+let blogsArr = [];
+
+//capturing all blogs from localstorage
+let storageBlogs = localStorage.getItem('blogs');
+let allBlogsArr = JSON.parse(storageBlogs); 
+blogsArr = allBlogsArr;
+var currentId = (Number(blogsArr[blogsArr.length-1].id) + 1).toString();
 
 // ===============  image preview before upload ==================
 var imgInput = document.querySelector('.image-selector');
@@ -32,36 +35,46 @@ const myForm = document.querySelector("form[name=blogForm]");
 var titleInput = document.querySelector('.title');
 var titleErrorBox = document.querySelector('.title-error-box');
 
-var imagePreview = document.querySelector('.image-cont');
+var imagePreview = document.querySelector('.img-cont');
 var imageErrorBox = document.querySelector('.image-error-box');
 
-var textArea = document.querySelector('.tox-tinymce');
+var textArea = document.querySelector('.rte-modern')
 var textAreaErrorBox = document.querySelector('.textarea-error-box');
 
-myForm.addEventListener('submit', onFormSubmit);
-textArea.classList.add('b-2px-red');
-textAreaErrorBox.classList.remove('d-lg-none');
+myForm.addEventListener('submit', function(e){
+	e.preventDefault();
+	const data = new FormData(e.target);
+    const blogTitle = data.get('blogTitle');
+    const blogImage = data.get('blogImage');
+    const blogBody = editor1.getText();
+    console.log('this is blogBody', blogBody.length);
 
-function onFormSubmit(event) {
-	event.preventDefault();
-	const data = new FormData(event.target);
-    var content = tinymce.activeEditor.getContent("mytextarea");
-    const dataObject = Object.fromEntries(data.entries());
-    dataObject.blogBody = content;
-    console.log('this is content', content);
-	console.log('this is dataObject', dataObject);
-
-    if(!dataObject.blogTitle){
+    if(!blogTitle){
         titleInput.classList.add('b-2px-red');
         titleErrorBox.classList.remove('d-lg-none');
+       
+    }if(!blogImage.name){
+        imagePreview.classList.add('b-2px-red');
+        imageErrorBox.classList.remove('d-lg-none');
 
-    }if(!content){
+    }if(blogBody.length <=  10){
+        console.log('yup')
         textArea.classList.add('b-2px-red');
         textAreaErrorBox.classList.remove('d-lg-none');
-    }if(dataObject.blogImage.name == ""){
-      
-        imagePreview.classList.remove('b-2px-dashed-hue')
-        imagePreview.classList.add('b-2px-red');
     }
+    if(blogTitle && blogImage.name && blogBody.length > 10){
+        const newBlog = {};
+        newBlog.id = currentId;
+        newBlog.title = blogTitle;
+        newBlog.imagePath = `./assets/${blogImage.name}`;
+        newBlog.body = blogBody
+        newBlog.published = Date.now();
+        newBlog.comments = []
+        newBlog.likes = []
+        console.log('this is blogImage', blogImage);
 
-}
+        blogsArr.push(newBlog);
+        const stringBlogs = JSON.stringify(blogsArr);
+        localStorage.setItem('blogs', stringBlogs);
+    }	
+});

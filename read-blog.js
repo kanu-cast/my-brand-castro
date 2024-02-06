@@ -17,7 +17,7 @@
     console.log(searchParams.has('id')); // true
     const currentId = searchParams.get('id');
     // filtering blogs to only display one with id in url
-    const blog = allBlogs.filter(item => item.id == currentId)[0];
+    var blog = allBlogs.filter(item => item.id == currentId)[0];
     console.log('this is blog', blog);
     // htm code for the blog
     
