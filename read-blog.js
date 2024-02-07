@@ -1,12 +1,4 @@
 
-
-
-
-
-
-
-(function(){
-    //capturing all blogs from localstorage
     let storageBlogs = localStorage.getItem('blogs');
     allBlogs = JSON.parse(storageBlogs);
     console.log('this is allBlogs', allBlogs);
@@ -18,9 +10,26 @@
     const currentId = searchParams.get('id');
     // filtering blogs to only display one with id in url
     var blog = allBlogs.filter(item => item.id == currentId)[0];
-    console.log('this is blog', blog);
-    // htm code for the blog
     
+    // handling Dates
+    const days =['Sunday','Monday', 'Tuesday','Wednesday','Thursday','Friday','Saturday'];
+    const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
+    const nthValue =(date)=>{
+        if (date.toString().length > 2 || date.toString().length == 0) return 'undefined';
+        if (Number(date) > 10 && Number(date) >= 20) return 'th';
+        if(date.toString().length > 1 && Number(date) > 20){
+            const newDate = Number(date.toString().split('')[1]);
+            return newDate > 3 ? 'th' : newDate == 0 ? 'th' : newDate == 1 ? 'st' : newDate == 2 ? 'nd' : 'rd';
+        }
+        const newDate = Number(date)
+        return newDate > 3 ? 'th' : newDate == 0 ? 'th' : newDate == 1 ? 'st' : newDate == 2 ? 'nd' : 'rd';
+        
+    }
+
+    const publishedDate = new Date(blog.published);
+    const PublishedDateString = `${days[publishedDate.getDay()]}, The ${publishedDate.getDate() + nthValue(publishedDate.getDate())} ${months[publishedDate.getMonth()]} ${publishedDate.getFullYear()}`
+
     const blogContent = `
         <div class="container pt-md-5 pt-lg-5 px-lg-5 px-4 px-md-4">
             <div class="block font-5 bold-3">${blog.title}
@@ -36,7 +45,7 @@
                         </div>
                         <div class="inline-block pt-3 pt-md-3 pt-lg-3 px-3 px-md-3 px-lg-3 bold-2 author-names" style="height: 3rem;">
                             ${blog.author.firstName} ${blog.author.lastName}
-                            <span class="block text-muted font-0 lato clr-red">${blog.published}
+                            <span class="block text-muted font-0 lato clr-red">${PublishedDateString}
                         </div>
                     </div>
                     <div class="block absolute  text-right" style="bottom: 1rem ; right: 0rem;">
@@ -100,6 +109,6 @@
                 </div>
             </div>
         </div>`
-    
+
+        
     blogDisplay.innerHTML = blogContent;
-})();

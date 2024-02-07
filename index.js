@@ -1,4 +1,44 @@
+// =============== BACKGROUND CUSTOMIZATION ==================
 
+const Bg1 = document.querySelector('.switcher .bg-1');
+const Bg2 = document.querySelector('.switcher .bg-2');
+
+let lightColorLightness;
+let whiteColorLightness;
+let darkColorLightness;
+
+const changeBg = () =>{
+    root.style.setProperty('--light-color-lightness', lightColorLightness);
+    root.style.setProperty('--white-color-lightness', whiteColorLightness);
+    root.style.setProperty('--dark-color-lightness', darkColorLightness);
+
+}
+
+Bg1.addEventListener('click', () =>{
+    localStorage.setItem('theme', 'light');
+    darkColorLightness = '17%';
+    whiteColorLightness = '100%';
+    lightColorLightness = '95%';
+    // add active class
+    Bg1.classList.add('active');
+    // remove active class from the other button
+    Bg2.classList.remove('active');
+    changeBg();
+
+});
+
+Bg2.addEventListener('click', () =>{
+    localStorage.setItem('theme', 'dark');
+    darkColorLightness = '95%';
+    whiteColorLightness = '10%';
+    lightColorLightness = '0%';
+    // add active class
+    Bg2.classList.add('active');
+    // remove active class from the other button
+    Bg1.classList.remove('active');
+    changeBg();
+
+});
 // =============== HAMBURGER AND NAV TOGGLE ==================
 
 var root = document.querySelector(':root');
@@ -41,50 +81,9 @@ menuItems.forEach(item =>{
         hideMenu();
     });
 });
-// =============== BACKGROUND CUSTOMIZATION ==================
-
-const Bg1 = document.querySelector('.switcher .bg-1');
-const Bg2 = document.querySelector('.switcher .bg-2');
-
-let lightColorLightness;
-let whiteColorLightness;
-let darkColorLightness;
-
-const changeBg = () =>{
-    root.style.setProperty('--light-color-lightness', lightColorLightness);
-    root.style.setProperty('--white-color-lightness', whiteColorLightness);
-    root.style.setProperty('--dark-color-lightness', darkColorLightness);
-
-}
-
-Bg1.addEventListener('click', () =>{
-    localStorage.setItem('theme', 'light');
-    darkColorLightness = '17%';
-    whiteColorLightness = '100%';
-    lightColorLightness = '95%';
-    // add active class
-    Bg1.classList.add('active');
-    // remove active class from the other button
-    Bg2.classList.remove('active');
-    changeBg();
-
-});
-
-Bg2.addEventListener('click', () =>{
-    localStorage.setItem('theme', 'dark');
-    darkColorLightness = '95%';
-    whiteColorLightness = '10%';
-    lightColorLightness = '0%';
-    // add active class
-    Bg2.classList.add('active');
-    // remove active class from the other button
-    Bg1.classList.remove('active');
-    changeBg();
-
-});
 
 // =========================== tracking background theme via local storage and invoking ============================
-const allBlogs = [
+const initialAllBlogs = [
     {   
         id:'1',
         title: 'The best coding practices and conventions in the industry today',
@@ -135,6 +134,15 @@ const allBlogs = [
         Lorem Ipsum passages, and more recently with desktop publishing software like Aldus 
         PageMaker including versions of Lorem Ipsum.
         `,
+        author:{
+            firstName: 'Munyaneza',
+            lastName: 'castro'
+        },
+        published:'12/jan/2024',
+        author:{
+            firstName: 'Munyaneza',
+            lastName: 'castro'
+        },
         published:'12/jan/2024',
         likes:[
             {id: '1', firstName:'munyaneza', lastName:'castro'},
@@ -143,7 +151,7 @@ const allBlogs = [
             {id: '1', firstName:'munyaneza', lastName:'castro'},
             {id: '1', firstName:'munyaneza', lastName:'castro'},
         ],
-        commments:[
+        comments:[
             {
                 id:'1',
                 author:{
@@ -236,6 +244,11 @@ const allBlogs = [
         Lorem Ipsum passages, and more recently with desktop publishing software like Aldus 
         PageMaker including versions of Lorem Ipsum.
         `,
+        author:{
+            firstName: 'Munyaneza',
+            lastName: 'castro'
+        },
+        published:'12/jan/2024',
         likes:[
             {id: '1', firstName:'munyaneza', lastName:'castro'},
             {id: '1', firstName:'munyaneza', lastName:'castro'},
@@ -243,7 +256,7 @@ const allBlogs = [
             {id: '1', firstName:'munyaneza', lastName:'castro'},
             {id: '1', firstName:'munyaneza', lastName:'castro'},
         ],
-        commments:[
+        comments:[
             {
                 id:'1',
                 author:{
@@ -336,6 +349,11 @@ const allBlogs = [
         It was popularised in the 1960s with the release of Letraset sheets containing 
         Lorem Ipsum passages, and more recently with desktop publishing software like Aldus 
         PageMaker including versions of Lorem Ipsum.`,
+        author:{
+            firstName: 'Munyaneza',
+            lastName: 'castro'
+        },
+        published:'12/jan/2024',
         likes:[
             {id: '1', firstName:'munyaneza', lastName:'castro'},
             {id: '1', firstName:'munyaneza', lastName:'castro'},
@@ -343,7 +361,7 @@ const allBlogs = [
             {id: '1', firstName:'munyaneza', lastName:'castro'},
             {id: '1', firstName:'munyaneza', lastName:'castro'},
         ],
-        commments:[
+        comments:[
             {
                 id:'1',
                 author:{
@@ -435,6 +453,11 @@ const allBlogs = [
         It was popularised in the 1960s with the release of Letraset sheets containing 
         Lorem Ipsum passages, and more recently with desktop publishing software like Aldus 
         PageMaker including versions of Lorem Ipsum.`,
+        author:{
+            firstName: 'Munyaneza',
+            lastName: 'castro'
+        },
+        published:'12/jan/2024',
         likes:[
             {id: '1', firstName:'munyaneza', lastName:'castro'},
             {id: '1', firstName:'munyaneza', lastName:'castro'},
@@ -442,7 +465,7 @@ const allBlogs = [
             {id: '1', firstName:'munyaneza', lastName:'castro'},
             {id: '1', firstName:'munyaneza', lastName:'castro'},
         ],
-        commments:[
+        comments:[
             {
                 id:'1',
                 author:{
@@ -534,6 +557,11 @@ const allBlogs = [
         It was popularised in the 1960s with the release of Letraset sheets containing 
         Lorem Ipsum passages, and more recently with desktop publishing software like Aldus 
         PageMaker including versions of Lorem Ipsum.`,
+        author:{
+            firstName: 'Munyaneza',
+            lastName: 'castro'
+        },
+        published:'12/jan/2024',
         likes:[
             {id: '1', firstName:'munyaneza', lastName:'castro'},
             {id: '1', firstName:'munyaneza', lastName:'castro'},
@@ -541,7 +569,7 @@ const allBlogs = [
             {id: '1', firstName:'munyaneza', lastName:'castro'},
             {id: '1', firstName:'munyaneza', lastName:'castro'},
         ],
-        commments:[
+        comments:[
             {
                 id:'1',
                 author:{
@@ -633,6 +661,11 @@ const allBlogs = [
         It was popularised in the 1960s with the release of Letraset sheets containing 
         Lorem Ipsum passages, and more recently with desktop publishing software like Aldus 
         PageMaker including versions of Lorem Ipsum.`,
+        author:{
+            firstName: 'Munyaneza',
+            lastName: 'castro'
+        },
+        published:'12/jan/2024',
         likes:[
             {id: '1', firstName:'munyaneza', lastName:'castro'},
             {id: '1', firstName:'munyaneza', lastName:'castro'},
@@ -640,7 +673,7 @@ const allBlogs = [
             {id: '1', firstName:'munyaneza', lastName:'castro'},
             {id: '1', firstName:'munyaneza', lastName:'castro'},
         ],
-        commments:[
+        comments:[
             {
                 id:'1',
                 author:{
@@ -733,6 +766,15 @@ const allBlogs = [
         Lorem Ipsum passages, and more recently with desktop publishing software like Aldus 
         PageMaker including versions of Lorem Ipsum.
         `,
+        author:{
+            firstName: 'Munyaneza',
+            lastName: 'castro'
+        },
+        published:'12/jan/2024',
+        author:{
+            firstName: 'Munyaneza',
+            lastName: 'castro'
+        },
         published:'12/jan/2024',
         likes:[
             {id: '1', firstName:'munyaneza', lastName:'castro'},
@@ -741,7 +783,7 @@ const allBlogs = [
             {id: '1', firstName:'munyaneza', lastName:'castro'},
             {id: '1', firstName:'munyaneza', lastName:'castro'},
         ],
-        commments:[
+        comments:[
             {
                 id:'1',
                 author:{
@@ -834,6 +876,11 @@ const allBlogs = [
         Lorem Ipsum passages, and more recently with desktop publishing software like Aldus 
         PageMaker including versions of Lorem Ipsum.
         `,
+        author:{
+            firstName: 'Munyaneza',
+            lastName: 'castro'
+        },
+        published:'12/jan/2024',
         likes:[
             {id: '1', firstName:'munyaneza', lastName:'castro'},
             {id: '1', firstName:'munyaneza', lastName:'castro'},
@@ -841,7 +888,7 @@ const allBlogs = [
             {id: '1', firstName:'munyaneza', lastName:'castro'},
             {id: '1', firstName:'munyaneza', lastName:'castro'},
         ],
-        commments:[
+        comments:[
             {
                 id:'1',
                 author:{
@@ -934,6 +981,11 @@ const allBlogs = [
         It was popularised in the 1960s with the release of Letraset sheets containing 
         Lorem Ipsum passages, and more recently with desktop publishing software like Aldus 
         PageMaker including versions of Lorem Ipsum.`,
+        author:{
+            firstName: 'Munyaneza',
+            lastName: 'castro'
+        },
+        published:'12/jan/2024',
         likes:[
             {id: '1', firstName:'munyaneza', lastName:'castro'},
             {id: '1', firstName:'munyaneza', lastName:'castro'},
@@ -941,7 +993,7 @@ const allBlogs = [
             {id: '1', firstName:'munyaneza', lastName:'castro'},
             {id: '1', firstName:'munyaneza', lastName:'castro'},
         ],
-        commments:[
+        comments:[
             {
                 id:'1',
                 author:{
@@ -1033,6 +1085,11 @@ const allBlogs = [
         It was popularised in the 1960s with the release of Letraset sheets containing 
         Lorem Ipsum passages, and more recently with desktop publishing software like Aldus 
         PageMaker including versions of Lorem Ipsum.`,
+        author:{
+            firstName: 'Munyaneza',
+            lastName: 'castro'
+        },
+        published:'12/jan/2024',
         likes:[
             {id: '1', firstName:'munyaneza', lastName:'castro'},
             {id: '1', firstName:'munyaneza', lastName:'castro'},
@@ -1040,7 +1097,7 @@ const allBlogs = [
             {id: '1', firstName:'munyaneza', lastName:'castro'},
             {id: '1', firstName:'munyaneza', lastName:'castro'},
         ],
-        commments:[
+        comments:[
             {
                 id:'1',
                 author:{
@@ -1132,6 +1189,11 @@ const allBlogs = [
         It was popularised in the 1960s with the release of Letraset sheets containing 
         Lorem Ipsum passages, and more recently with desktop publishing software like Aldus 
         PageMaker including versions of Lorem Ipsum.`,
+        author:{
+            firstName: 'Munyaneza',
+            lastName: 'castro'
+        },
+        published:'12/jan/2024',
         likes:[
             {id: '1', firstName:'munyaneza', lastName:'castro'},
             {id: '1', firstName:'munyaneza', lastName:'castro'},
@@ -1139,7 +1201,7 @@ const allBlogs = [
             {id: '1', firstName:'munyaneza', lastName:'castro'},
             {id: '1', firstName:'munyaneza', lastName:'castro'},
         ],
-        commments:[
+        comments:[
             {
                 id:'1',
                 author:{
@@ -1231,6 +1293,11 @@ const allBlogs = [
         It was popularised in the 1960s with the release of Letraset sheets containing 
         Lorem Ipsum passages, and more recently with desktop publishing software like Aldus 
         PageMaker including versions of Lorem Ipsum.`,
+        author:{
+            firstName: 'Munyaneza',
+            lastName: 'castro'
+        },
+        published:'12/jan/2024',
         likes:[
             {id: '1', firstName:'munyaneza', lastName:'castro'},
             {id: '1', firstName:'munyaneza', lastName:'castro'},
@@ -1238,7 +1305,7 @@ const allBlogs = [
             {id: '1', firstName:'munyaneza', lastName:'castro'},
             {id: '1', firstName:'munyaneza', lastName:'castro'},
         ],
-        commments:[
+        comments:[
             {
                 id:'1',
                 author:{
@@ -1284,8 +1351,11 @@ const allBlogs = [
 ];
 
 (function () {
-    let stringfied = JSON.stringify(allBlogs)
-    localStorage.setItem('blogs', stringfied);
+    console.log(toString(null))
+    // if(JSON.parse(localStorage.getItem('blogs')).length == 0){
+        let stringfied = JSON.stringify(initialAllBlogs)
+        localStorage.setItem('blogs', stringfied);
+    // }
     const strorageTheme = localStorage.getItem('theme');
     if(strorageTheme == 'light'){
         darkColorLightness = '17%';
@@ -1311,13 +1381,8 @@ const allBlogs = [
 
 // ===================== CONTACT FORM VALIDATION ============================
 
-/// state
-
-let email = '';
-let message = '';
-
 /// email validation here
-const checkIsEmail = (email) =>{
+const isEmail = (email) =>{
     return String(email)
         .toLowerCase()
         .match(/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/);
@@ -1327,17 +1392,17 @@ var emailForm = document.querySelector('.email');
 var emailErrorBox = document.querySelector('.email-error-box');
 
 //// eventlisteners
-emailForm.addEventListener('change', function(evt){
+emailForm.addEventListener('keyup', function(evt){
     console.log('this is log', evt.target.value);
     const { value } = evt.target;
-    if(!checkIsEmail(value)){
+    if(!isEmail(value)){
         emailForm.classList.add('b-2px-red');
         emailErrorBox.classList.remove('d-lg-none');
         return;
     }
     emailForm.classList.remove('b-2px-red');
     emailErrorBox.classList.add('d-lg-none');
-    return email = checkIsEmail(value)[0];
+    return email = isEmail(value)[0];
 });
 
 

@@ -71,6 +71,7 @@ myForm.addEventListener('submit', function(e){
         newBlog.published = Date.now();
         newBlog.comments = []
         newBlog.likes = []
+        newBlog.author = {firstName:'Munyaneza', lastName:'Castro'}
         console.log('this is blogImage', blogImage);
 
         blogsArr.push(newBlog);
