@@ -30,12 +30,14 @@
     const publishedDate = new Date(blog.published);
     const PublishedDateString = `${days[publishedDate.getDay()]}, The ${publishedDate.getDate() + nthValue(publishedDate.getDate())} ${months[publishedDate.getMonth()]} ${publishedDate.getFullYear()}`
 
+    console.log('thi is blogImagePath redablog', blog.imagePath);
     const blogContent = `
         <div class="container pt-md-5 pt-lg-5 px-lg-5 px-4 px-md-4">
             <div class="block font-5 bold-3">${blog.title}
             </div>
             <div class="img-wrapper br-3 mt-3 mt-md-3 mt-lg-3" >
-                <img src="./assets/coder.jpg" class=" br-3" style="height: auto; width: 100%;"/>
+                <img src=${blog.imagePath}
+                class=" br-3" style="height: auto; width: 100%;"/>
             </div>
             <div class="block py-4 py-md-4 py-lg-4 relative">
                     <div class="flex-box">

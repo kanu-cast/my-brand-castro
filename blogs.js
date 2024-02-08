@@ -18,7 +18,8 @@
         <div class=" my-3 my-md-3 my-lg-4 py-lg-0 inline-block" style="width: 16rem;">
             <div class="card b-3px-hue br-3">
                 <div class="card-img-holder" style="height: 8rem;">
-                    <img src="./assets/coder.jpg" class="img-fit br-top-2"/>
+                    <img src="${blog.imagePath}"
+                    class="img-fit br-top-2"/>
                 </div>
                 <div class="card-body block px-lg-3 py-lg-2">
                     <div class="double-grid px-0">

@@ -4,27 +4,16 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>My Brand | Blogs</title>
-        <link rel="stylesheet" href="./styles/blogs-slider.css">
-        <link rel="stylesheet" href="./styles/style.css">
+        <title>My Brand | Create</title>
 
-    </head>
-        <body class="relative py-0 my-0 my-md-0 py-md-0 my-lg-0 py-lg-0">
-            <div class="modal d-lg-none">
-                <div class="modal-card br-3" >
-                    <div class="block">
-                        <div class="block">
-                            <span class="block text-right">
-                                Are you sure you want to Delete this Blog?
-                            </span>
-                        </div>
-                        <div class="block text-right py-lg-2 pt-lg-3">
-                            <button id='myid' class="inline-block mx-2 mx-md-2 mx-lg-2 font-2 card-body py-lg-3 px-lg-4 mt-lg-2 br-2 cancel pointer">Cancel</button>
-                            <button class="inline-block mx-2 mx-md-2 mx-lg-2 btn-red font-2 py-lg-3 px-lg-4 mt-lg-2 br-2 pointer delete-button">Delete</button>  
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <!--Including the texteditor JS & CSS-->
+        <link rel="stylesheet" href="./richtexteditor/richtexteditor/rte_theme_default.css" />
+        <script type="text/javascript" src="./richtexteditor/richtexteditor/rte.js"></script>
+        <script type="text/javascript" src='./richtexteditor/richtexteditor/plugins/all_plugins.js'></script>
+        <link rel="stylesheet" href="./styles/style.css">
+        
+    </head>                                             
+        <body class="py-0 my-0 my-md-0 py-md-0 my-lg-0 py-lg-0">
          <!-- navigation bar -->
          <div class=" nav px-lg-3 box-shadow py-lg-2 d-block d-md-none d-lg-none">
             <div class="container py-lg-3">
@@ -50,7 +39,7 @@
                     <span class="hovereble-link block py-3 px-lg-3"><a href="./dashboard.html" class="style-none">Dashboard</a></span>
                     <span class="hovereble-link block py-3 px-lg-3"><a href="./users.html" class="style-none">Users </a></span>
                     <span class="hovereble-link block py-3 px-lg-3 active"><a href="./blogs-admin.html" class="style-none">Blogs </a></span>
-                    <span class="hovereble-link block py-3 px-lg-3"><a href="./subscribers.html" class="style-none">Subscriber </a></span>
+                    <span class="hovereble-link block py-3 px-lg-3"><a href="./subscribers.html" class="style-none">Subscribers </a></span>
                     <span class="hovereble-link block py-3 px-lg-3"><a href="./send-mail.html" class="style-none">Send Mail </a></span>
                     <span class="hovereble-link block py-3 px-lg-3"><a href="./messages.html" class="style-none">Messages</a></span>
                     <div class="block px-5">
@@ -69,7 +58,7 @@
             </div>
         </div>
         <section>
-            <div class="card-body sidemenu b-1px-hue px-4 px-md-4 px-lg-4" style="width: 300px; min-height: 100vh; position: fixed;" >
+            <div class="card-stable-body sidemenu b-1px-hue px-4 px-md-4 px-lg-4" style="width: 300px; min-height: 100vh; position: fixed;" >
                 <div class="block relative py-4 py-md-4 py-lg-4 mt-lg-4">
                     <div class="flex-box">
                         <div class="inline-block br-rnd b-1px-hue relative" 
@@ -113,34 +102,38 @@
                         </span>
                     </a>
                 </div>
-                <div class="block  pt-4 pt-md-4 px-2 px-md-5 px-lg-5 pt-lg-4 mt-lg-5 ">
-                    <h1 class="block font-5 bold-2 px-3 px-md-3 px-lg-3 relative ">Blogs
-                        <button class="pointer f-right font-3 btn-red mt-lg-2 py-3 py-md-3 py-lg-3 px-3 px-md-3 px-lg-3 br-2">
-                            <a href="./create-blog.html" class="style-none">
-                                <span class="font-2 bold-1">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
-                                        <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2"/>
-                                    </svg>
-                                </span>Create New Blog
-                            </a>
-                        </button>
-                    </h1>
+                <div class="block pt-4 pt-md-4 px-0 px-md-4 px-lg-4 pt-lg-4 mt-lg-5 relative">
+                    <h1 class="font-5 bold-2 px-4 px-md-4 px-lg-4">Edit Blog</h1>
                 </div>
-                <div class="block px-1 px-md-3 px-lg-4 py-5 py-md-5 py-lg-5">
-                    <ul id="paginated-list" data-current-page="1" aria-live="polite" class="flex blogs-list"></ul>
-                        <nav class="pagination-container mt-lg-5">
-                            <button class="pagination-button" id="prev-button" aria-label="Previous page" title="Previous page">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-left-fill" viewBox="0 0 16 16">
-                                    <path d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z"/>
-                                </svg>
-                            </button>
-                            <div id="pagination-numbers"></div>
-                            <button class="pagination-button" id="next-button" aria-label="Next page" title="Next page">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-right-fill" viewBox="0 0 16 16">
-                                    <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
-                                </svg>
-                            </button>
-                        </nav>
+                <div class="block px-0 px-lg-4 pt-lg-4 pt-4 pt-md-4">
+                    <div class="wrapper px-lg-4" style="height: 100%;">
+                        <div class="card-stable br-2 box-shadow px-4 px-md-4 px-lg-5 py-4 py-md-4 py-lg-5" style="height: 100%;">
+                            <form method="post" name="blogForm">
+                                <div class="block form-block">
+                                
+                                </div>
+                                <div id="div_editor1" class="editor relative">
+    
+                                </div>
+                                <div class="block text-right pt-lg-2" style="height: 14px;">
+                                    <div class="font-0 clr-red d-lg-none textarea-error-box">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-exclamation-circle-fill" viewBox="0 0 16 16">
+                                            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4m.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2"/>
+                                        </svg>
+                                        Body can't be Empty
+                                    </div>
+                                </div>
+                                <div class="btns py-lg-5">
+                                    <button type="submit" class="pointer f-right btn-red  py-3 py-md-3 py-lg-3 px-4 px-md-4 px-lg-4 mt-lg-4 br-2">Publish Blog
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-up" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd" d="M3.5 6a.5.5 0 0 0-.5.5v8a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5v-8a.5.5 0 0 0-.5-.5h-2a.5.5 0 0 1 0-1h2A1.5 1.5 0 0 1 14 6.5v8a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 14.5v-8A1.5 1.5 0 0 1 3.5 5h2a.5.5 0 0 1 0 1z"/>
+                                            <path fill-rule="evenodd" d="M7.646.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 1.707V10.5a.5.5 0 0 1-1 0V1.707L5.354 3.854a.5.5 0 1 1-.708-.708z"/>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
             <footer>
@@ -150,8 +143,11 @@
                 </div>
             </footer>
         </section>
-            <!-- ======== javascript ========== -->
-            <script src="./blogsAdmin.js"></script>
-            <script src="./index.js"></script>
+        <!-- ======== javascript ========== -->
+        <script>
+            var editor1 = new RichTextEditor("#div_editor1");
+        </script>
+        <script src="./index.js"></script>
+        <script src="./update-blog.js"></script>
     </body>
 </html>

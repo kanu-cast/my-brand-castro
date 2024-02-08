@@ -47,7 +47,6 @@ myForm.addEventListener('submit', function(e){
     const blogTitle = data.get('blogTitle');
     const blogImage = data.get('blogImage');
     const blogBody = editor1.getText();
-    console.log('this is blogBody', blogBody.length);
 
     if(!blogTitle){
         titleInput.classList.add('b-2px-red');
