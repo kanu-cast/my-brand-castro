@@ -53,6 +53,8 @@ const changePreview = (e)=>{
       console.log('this is file', file);
     reader.onload = () => {
         if(reader.readyState == 2){
+            localStorage.setItem('uploadedImage', reader.result);
+            uploadedImage.src = reader.result;
             blogImage = file;
             changeImageSrc(file.name)
         }
@@ -71,6 +73,7 @@ var titleErrorBox = document.querySelector('.title-error-box');
 
 var imagePreview = document.querySelector('.img-cont');
 var imageErrorBox = document.querySelector('.image-error-box');
+var uploadedImage = document.querySelector('.image-preview');
 
 var textArea = document.querySelector('.rte-modern')
 var textAreaErrorBox = document.querySelector('.textarea-error-box');
@@ -95,7 +98,7 @@ myForm.addEventListener('submit', function(e){
             if(item.id == blog.id){
                 console.log('inside map')
                 item.title = blogTitle;
-                item.imagePath = `./assets/${blogImage.name}`;
+                item.imagePath = localStorage.getItem('uploadedImage');
                 item.body = blogBody
                 item.published = Date.now();
                 item.author = {firstName:'Munyaneza', lastName:'Castro'}

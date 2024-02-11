@@ -18,8 +18,6 @@ const changePreview = (e)=>{
     let file = e.target.files[0];
     reader.onload = () => {
         if(reader.readyState == 2){
-            console.log('this is reader', reader);
-            console.log('this is reader result', reader.readyState);
             localStorage.setItem('uploadedImage', reader.result);
             blogImage = file;
             uploadedImage.src = reader.result;
