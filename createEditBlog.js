@@ -13,12 +13,16 @@ function changeImageSrc(newSrc) {
     img.src = `./assets/${newSrc}`;
 }
 const changePreview = (e)=>{
-    let reader = new FileReader();
-      let file = e.target.files[0];
-      console.log('this is file', file);
+    const reader = new FileReader();
+    
+    let file = e.target.files[0];
     reader.onload = () => {
         if(reader.readyState == 2){
+            console.log('this is reader', reader);
+            console.log('this is reader result', reader.readyState);
+            localStorage.setItem('uploadedImage', reader.result);
             blogImage = file;
+            uploadedImage.src = reader.result;
             changeImageSrc(file.name)
         }
     }
@@ -37,7 +41,7 @@ var titleErrorBox = document.querySelector('.title-error-box');
 
 var imagePreview = document.querySelector('.img-cont');
 var imageErrorBox = document.querySelector('.image-error-box');
-
+var uploadedImage = document.querySelector('.image-preview');
 var textArea = document.querySelector('.rte-modern')
 var textAreaErrorBox = document.querySelector('.textarea-error-box');
 
@@ -46,6 +50,7 @@ myForm.addEventListener('submit', function(e){
 	const data = new FormData(e.target);
     const blogTitle = data.get('blogTitle');
     const blogImage = data.get('blogImage');
+
     const blogBody = editor1.getHTMLCode();
 
     if(!blogTitle){
@@ -64,7 +69,7 @@ myForm.addEventListener('submit', function(e){
         const newBlog = {};
         newBlog.id = currentId;
         newBlog.title = blogTitle;
-        newBlog.imagePath = `./assets/${blogImage.name}`;
+        newBlog.imagePath = localStorage.getItem('uploadedImage');
         newBlog.body = blogBody
         newBlog.published = Date.now();
         newBlog.comments = []
