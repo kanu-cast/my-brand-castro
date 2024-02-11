@@ -1352,10 +1352,10 @@ const initialAllBlogs = [
 
 (function () {
     console.log(toString(null))
-    if(JSON.parse(localStorage.getItem('blogs')).length == 0){
+    // if(JSON.parse(localStorage.getItem('blogs')).length == 0){
         let stringfied = JSON.stringify(initialAllBlogs)
         localStorage.setItem('blogs', stringfied);
-    }
+    // }
     const strorageTheme = localStorage.getItem('theme');
     if(strorageTheme == 'light'){
         darkColorLightness = '17%';

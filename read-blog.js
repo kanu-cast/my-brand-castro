@@ -3,7 +3,9 @@
     allBlogs = JSON.parse(storageBlogs);
     console.log('this is allBlogs', allBlogs);
     // get div where blog will be displayed
-    const blogDisplay = document.querySelector('.blog-display');
+    const blogHeader = document.querySelector('.blog-header');
+    const blogBody = document.querySelector('.blog-body');
+    const blogStats = document.querySelector('.blog-stats');
     // get id from the url
     const searchParams = new URLSearchParams(window.location.search);
     console.log(searchParams.has('id')); // true
@@ -30,8 +32,7 @@
     const publishedDate = new Date(blog.published);
     const PublishedDateString = `${days[publishedDate.getDay()]}, The ${publishedDate.getDate() + nthValue(publishedDate.getDate())} ${months[publishedDate.getMonth()]} ${publishedDate.getFullYear()}`
 
-    console.log('thi is blogImagePath redablog', blog.imagePath);
-    const blogContent = `
+    const blogHeaderContent =`
         <div class="container pt-md-5 pt-lg-5 px-lg-5 px-4 px-md-4">
             <div class="block font-5 bold-3">${blog.title}
             </div>
@@ -73,10 +74,11 @@
                         </span>
                     
                     </div>
-            </div>
-            <p class="py-4 py-md-4 py-lg-4">
-                ${blog.body}
-            </p>
+            </div>`
+            blogHeader.innerHTML += blogHeaderContent;
+            blogBody.innerHTML += `${blog.body}`;
+            console.log('this is body', blog.body)
+            const blogStatsContent =`
             <div class="action block text-center mt-5 mt-md-5 mt-lg-5">
                 <div class="like inline-block  mx-3 mx-md-3 mx-lg-3 bold-3 ">
                     <span class="clr-red pointer">
@@ -85,7 +87,7 @@
                         </svg>
                     </span>
                     <span class="inline-block px-2 font-2 bold-1">
-                        20 Likes
+                        ${blog.likes.length} Likes
                     </span>
                 </div>
                 <div class="share inline-block  mx-3 mx-md-3 mx-lg-3 pointer bold-3">
@@ -106,11 +108,9 @@
                         </svg>
                     </span>
                     <span class="inline-block px-2 font-2 bold-1">
-                        12 Comments
+                        ${blog.comments.length ? blog.comments.length : 'No'} Comments
                     </span>
                 </div>
             </div>
         </div>`
-
-        
-    blogDisplay.innerHTML = blogContent;
+    blogStats.innerHTML += blogStatsContent;

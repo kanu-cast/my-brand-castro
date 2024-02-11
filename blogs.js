@@ -13,6 +13,7 @@
     const publishedDate = new Date(blog.published);
     const PublishedDateString = `${publishedDate.getDate()} ${months[publishedDate.getMonth()].substring(0,3)} ${publishedDate.getFullYear()}`
    //displaying blog on UI
+   const blogTitleString = blog.title.length > 40 ? blog.title.substring(0,40)+'...': blog.title;
     const blogCard = `
         <li>
         <div class=" my-3 my-md-3 my-lg-4 py-lg-0 inline-block" style="width: 16rem;">
@@ -42,7 +43,7 @@
                         </span>
                     </div>
                     <span class=" text-left block font-2-5 bold-1"  style="min-height: 4.4rem;" >
-                        ${blog.title}
+                        ${blogTitleString}
                     </span>
                     <div class="block text-center py-lg-2">
                         <button class="btn-red font-1 py-lg-3 px-lg-3 mt-lg-2 br-2">

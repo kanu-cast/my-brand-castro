@@ -46,7 +46,7 @@ myForm.addEventListener('submit', function(e){
 	const data = new FormData(e.target);
     const blogTitle = data.get('blogTitle');
     const blogImage = data.get('blogImage');
-    const blogBody = editor1.getText();
+    const blogBody = editor1.getHTMLCode();
 
     if(!blogTitle){
         titleInput.classList.add('b-2px-red');
@@ -57,7 +57,6 @@ myForm.addEventListener('submit', function(e){
         imageErrorBox.classList.remove('d-lg-none');
 
     }if(blogBody.length <=  10){
-        console.log('yup')
         textArea.classList.add('b-2px-red');
         textAreaErrorBox.classList.remove('d-lg-none');
     }
@@ -71,10 +70,10 @@ myForm.addEventListener('submit', function(e){
         newBlog.comments = []
         newBlog.likes = []
         newBlog.author = {firstName:'Munyaneza', lastName:'Castro'}
-        console.log('this is blogImage', blogImage);
 
         blogsArr.push(newBlog);
         const stringBlogs = JSON.stringify(blogsArr);
         localStorage.setItem('blogs', stringBlogs);
+        window.location.href =`./read-blog.html?id=${currentId}`
     }	
 });

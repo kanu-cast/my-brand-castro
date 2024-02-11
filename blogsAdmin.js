@@ -9,12 +9,8 @@
   allBlogs.forEach((blog , idx)=>{
     const path = `./read-blog.html?id=${blog.id}`
     path.trim();
-    // handling Dates
-    const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];  
-    const publishedDate = new Date(blog.published);
-    const PublishedDateString = `${publishedDate.getDate()} ${months[publishedDate.getMonth()].substring(0,3)} ${publishedDate.getFullYear()}`
-   //displaying blog on UI
-   const btns = document.querySelector('.btns');
+    //displaying blog on UI
+    let blogTitleString = blog.title.length > 80 ? blog.title.substring(0,80) + '...' : blog.title;
     const blogCard = `
         <li>
         <div class="my-3 my-md-3 my-lg-4 py-lg-0 inline-block relative" style="width: 16rem;">
@@ -31,7 +27,7 @@
                 </div>
                 <div class="card-body block px-lg-3 py-lg-3 py-3 py-md-3">
                     <span class=" text-left block font-2 bold-2"  style="min-height: 4rem;" >
-                        ${blog.title}
+                        ${blogTitleString}
                     </span>
                     <div class="block text-center py-lg-2">
                         <button class="inline-block mx-2 mx-md-2 mx-lg-2 b-2px-white font-1 card-body py-lg-2 px-lg-3 mt-lg-2 br-2"><a href="./read-blog.html?id=${blog.id}" class="style-none py-lg-1 inline-block">Read More</a></button>
