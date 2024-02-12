@@ -113,7 +113,7 @@
             </div>
         </div>
         <div class="container px-lg-5 px-md-4 px-4">
-        <div class="block py-lg-4 mb-lg-5">
+        <div class="block py-lg-4">
         <h1 class="py-lg-4">${blog.comments.length} Comments</h1>
     </div>
         </div>
