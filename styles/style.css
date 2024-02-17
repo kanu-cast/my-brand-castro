@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=Poppins:wght@300;400;500;600&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=Poppins:wght@300;400;500;600&display=swap'); */
 
 :root{
     /* // universal manipulation */
@@ -6,17 +6,14 @@
     --dark-color-lightness: 17%;
     --light-color-lightness: 95%;
     --white-color-lightness: 100%;
-    
     /* color palletes */
     --color-white: hsl(252, 30%, var(--white-color-lightness));
     --color-light: hsl(252, 30%, var(--light-color-lightness));
     --color-dark: hsl(252, 30%, var(--dark-color-lightness));
-    
     /* for buttons and stuff */
     --color-primary: hsl(var(--primary-color-hue), 34%, 23%);
     --color-primary-hovered: hsl(232, 55%, 21%);
 }
-
 html {
     scroll-behavior: smooth;
 }
@@ -62,12 +59,10 @@ body{
     display: flex;
     align-items: center;
     justify-content:  space-between;
-
 }
 .small-nav{
     background:  hsl(252, 30%, 10%) !important;
     color: #fff;
-
 }
 .sidemenu{
     background:  hsl(252, 30%, 15%) !important;
@@ -84,7 +79,6 @@ body{
 .card-body{
     background: var(--color-primary);
     color: white !important;
-    
 }
 .card{
     background: var(--color-white);    
@@ -105,11 +99,6 @@ body{
 .bg-inherit{
     background-color: inherit !important;
 }
-/* .boxsizingBorder {
-    -webkit-box-sizing: border-box;
-       -moz-box-sizing: border-box;
-            box-sizing: border-box;
-} */
 .hamburger{
     display:none;
 }
@@ -227,7 +216,6 @@ body{
     opacity: 0.2;
     border-radius: 50%;
     z-index: -1;
-
 }
 .ring-bg-2{
     height: 8rem;
@@ -238,7 +226,6 @@ body{
     opacity: 0.2;
     border-radius: 50%;
     z-index: -1;
-
 }
 .ring-bg-3{
     height: 20rem;
@@ -249,7 +236,6 @@ body{
     opacity: 0.2;
     border-radius: 50%;
     z-index: -1;
-
 }
 .modal {
     background: rgba(255, 255, 255, 0.5);
@@ -263,7 +249,6 @@ body{
     display: grid;
     place-items: center;
     font-size: 0.9rem;
-    
 }
 .comment-card{
     width: 76%;
@@ -274,13 +259,11 @@ body{
     padding: 2rem 3rem;
     width: 30%;
     box-shadow: 0 0 1rem var(--color-primary);
-
 }
 .p-comment{
     padding-left: 3rem;
 }
 /* reusable border classes */
-
 .b-1px-hue{border:1px solid var(--color-primary) !important;}
 .b-2px-hue{border:2px solid var(--color-primary) !important;}
 .b-3px-hue{border:3px solid var(--color-primary) !important;}
@@ -291,9 +274,7 @@ body{
 .b-2px-white{border:2px solid white !important;}
 .b-1px-red{border:1px solid #E84949 !important;}
 .b-2px-red{border:2px solid #E84949 !important;}
-
 /* re-usable font weight classes*/
-
 .bold-0{
     font-weight: 300 !important;
 }
@@ -315,11 +296,9 @@ body{
 .bold-5{
     font-weight: 1000 !important;
 }
-
 /* re-usable font size classes*/
 .font-smallest{
     font-size: 8px !important;
-
 }
 .font-0{
     font-size: 10px !important;
@@ -364,34 +343,29 @@ body{
     text-transform: capitalize !important;
 }
 /******border radiuss********/
-
 .br-1{border-radius: 2px !important;}
 .br-2{border-radius: 4px !important;}
 .br-3{border-radius: 6px !important;}
 .br-4{border-radius: 8px !important;}
 .br-5{border-radius: 1.2rem !important;}
 .br-rnd{border-radius: 50% !important;}
-
 .br-top-2{
     border-top-right-radius: 3px !important;
     border-top-left-radius: 3px !important;
-
 }
 .pointer{
     cursor: pointer;
 }
-  /* quick fixes */
-  /* padding y */
+/* quick fixes */
+/* padding y */
 .py-lg-0{
     padding-top: 0px !important;
     padding-bottom: 0px !important;
 }
-
 .py-lg-1{
     padding-top: 2px !important;
     padding-bottom: 2px !important;
 }
-
 .py-lg-2{
     padding-top: 4px !important;
     padding-bottom: 4px !important;
@@ -408,18 +382,15 @@ body{
     padding-top: 4rem !important;
     padding-bottom: 4rem !important;
 }
-
   /* padding y */
 .px-lg-0{
     padding-left: 0px !important;
     padding-right: 0px !important;
 }
-
 .px-lg-1{
     padding-left: 2px !important;
     padding-right: 2px !important;
 }
-
 .px-lg-2{
     padding-left: 4px !important;
     padding-right: 4px !important;
@@ -436,16 +407,13 @@ body{
     padding-left: 4rem !important;
     padding-right: 4rem !important;
 }
-
 /* padding top */
-
 .pt-lg-0{
     padding-top: 0px !important;
 }
 .pt-lg-1{
     padding-top: 2px !important;
 }
-
 .pt-lg-2{
     padding-top: 4px !important;
 }
@@ -458,16 +426,13 @@ body{
 .pt-lg-5{
     padding-top: 4rem !important;
 }
-
 /* padding bottom */
 .pb-lg-0{
     padding-bottom: 0px !important;
 }
-
 .pb-lg-1{
     padding-bottom: 2px !important;
 }
-
 .pb-lg-2{
     padding-bottom: 4px !important;
 }
@@ -480,7 +445,6 @@ body{
 .pb-lg-5{
     padding-bottom: 4rem !important;
 }
-
 /* margin y */
 .my-lg-0{
     margin-top: 0px !important;
@@ -511,7 +475,6 @@ body{
     margin-top: 4rem !important;
     margin-bottom: 4rem !important;
 }
-
 /* margin x */
 .mx-lg-0{
     margin-left: 0px !important;
@@ -537,9 +500,7 @@ body{
     margin-left: 4rem !important;
     margin-right: 4rem !important;
 }
-
 /* margin top */
-
 .mt-lg-0{
     margin-top: 0px !important;
 }
@@ -558,7 +519,6 @@ body{
 .mt-lg-5{
     margin-top: 4rem !important;
 }
-
 /* margin bottom */
 .mb-lg-0{
     margin-bottom: 0px !important;
@@ -578,16 +538,13 @@ body{
 .mb-lg-5{
     margin-bottom: 4rem !important;
 }
-
 /*--------display & positioning------*/
-
 .block{display: block !important;}
 .fixed{display: fixed !important;}
 .absolute{position: absolute !important;}
 .text-center{ text-align: center !important;}
 .text-left{ text-align: left !important;}
 .text-right{ text-align: right !important;}
-
 .relative{position:relative !important;}
 .flex-centered-vertical{
     display: flex;
@@ -633,32 +590,29 @@ body{
 .o-x-scroll{overflow-y: scroll !important;}
 .opacity-0{opacity: 0 !important;}
 /* doubleshricked*/
-      /* width */
-    .scroll-double-shrinked::-webkit-scrollbar {
-      width: 4px;
-      background-color: #fafafa !important;
-      margin-top: 1rem !important;
-      }
-
-      /* Track */
-      .scroll-double-shrinked::-webkit-scrollbar-track {
-      box-shadow: inset 0 0 2px rgb(41, 41, 41);
-      border-radius: 5px;
-      }
-
-      /* Handle */
-      .scroll-double-shrinked::-webkit-scrollbar-thumb {
-      background: grey;
-      border-radius: 4px;
-      margin-top: 4px;
-      margin-bottom: 4px;
-      }
+/* width */
+.scroll-double-shrinked::-webkit-scrollbar {
+    width: 4px;
+    background-color: #fafafa !important;
+    margin-top: 1rem !important;
+}
+/* Track */
+.scroll-double-shrinked::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 2px rgb(41, 41, 41);
+    border-radius: 5px;
+}
+/* Handle */
+.scroll-double-shrinked::-webkit-scrollbar-thumb {
+    background: grey;
+    border-radius: 4px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
 .o-y-hidden{overflow-y: hidden !important;}
 .o-x-hidden{overflow-y: hidden !important;}
 /* =================================================================
 MEDIA QUERIES FOR SMALL LAPTOPS AND TABLETS
 ================================================================= */
-
 @media screen and (max-width:1200px) {
     .double-grid {
         display: grid;
@@ -683,12 +637,10 @@ MEDIA QUERIES FOR SMALL LAPTOPS AND TABLETS
         padding-top: 0px !important;
         padding-bottom: 0px !important;
     }
-
     .py-md-1{
         padding-top: 2px !important;
         padding-bottom: 2px !important;
     }
-
     .py-md-2{
         padding-top: 4px !important;
         padding-bottom: 4px !important;
@@ -705,18 +657,15 @@ MEDIA QUERIES FOR SMALL LAPTOPS AND TABLETS
         padding-top: 4rem !important;
         padding-bottom: 4rem !important;
     }
-
     /* padding y */
     .px-md-0{
         padding-left: 0px !important;
         padding-right: 0px !important;
     }
-
     .px-md-1{
         padding-left: 2px !important;
         padding-right: 2px !important;
     }
-
     .px-md-2{
         padding-left: 4px !important;
         padding-right: 4px !important;
@@ -733,9 +682,7 @@ MEDIA QUERIES FOR SMALL LAPTOPS AND TABLETS
         padding-left: 4rem !important;
         padding-right: 4rem !important;
     }
-
     /* padding top */
-
     .pt-md-0{
         padding-top: 0px !important;
     }
@@ -755,16 +702,13 @@ MEDIA QUERIES FOR SMALL LAPTOPS AND TABLETS
     .pt-md-5{
         padding-top: 4rem !important;
     }
-
     /* padding bottom */
     .pb-md-0{
         padding-bottom: 0px !important;
     }
-
     .pb-md-1{
         padding-bottom: 2px !important;
     }
-
     .pb-md-2{
         padding-bottom: 4px !important;
     }
@@ -777,7 +721,6 @@ MEDIA QUERIES FOR SMALL LAPTOPS AND TABLETS
     .pb-md-5{
         padding-bottom: 4rem !important;
     }
-
     /* margin md */
     /* margin y */
     .my-md-0{
@@ -835,9 +778,7 @@ MEDIA QUERIES FOR SMALL LAPTOPS AND TABLETS
         margin-left: 4rem !important;
         margin-right: 4rem !important;
     }
-
     /* margin top */
-
     .mt-md-0{
         margin-top: 0px !important;
     }
@@ -856,7 +797,6 @@ MEDIA QUERIES FOR SMALL LAPTOPS AND TABLETS
     .mt-md-5{
         margin-top: 4rem !important;
     }
-
     /* margin bottom */
     .mb-md-0{
         margin-bottom: 0px !important;
@@ -876,13 +816,10 @@ MEDIA QUERIES FOR SMALL LAPTOPS AND TABLETS
     .mb-md-5{
         margin-bottom: 4rem !important;
     }
-    
 }
-
 /* ==================================================================
 MEDIA QUERIES FOR SMALL TABLETS AND MOBILE PHONES
 ================================================================== */
-
 @media screen and (max-width: 992px) {
     .menu-items{
         display: none;
@@ -946,12 +883,10 @@ MEDIA QUERIES FOR SMALL TABLETS AND MOBILE PHONES
         padding-top: 0px !important;
         padding-bottom: 0px !important;
     }
-
     .py-1{
         padding-top: 2px !important;
         padding-bottom: 2px !important;
     }
-
     .py-2{
         padding-top: 4px !important;
         padding-bottom: 4px !important;
@@ -968,18 +903,15 @@ MEDIA QUERIES FOR SMALL TABLETS AND MOBILE PHONES
         padding-top: 4rem !important;
         padding-bottom: 4rem !important;
     }
-
     /* padding y */
     .px-0{
         padding-left: 0px !important;
         padding-right: 0px !important;
     }
-
     .px-1{
         padding-left: 2px !important;
         padding-right: 2px !important;
     }
-
     .px-2{
         padding-left: 4px !important;
         padding-right: 4px !important;
@@ -996,16 +928,13 @@ MEDIA QUERIES FOR SMALL TABLETS AND MOBILE PHONES
         padding-left: 4rem !important;
         padding-right: 4rem !important;
     }
-
     /* padding top */
-
     .pt-0{
         padding-top: 0px !important;
     }
     .pt-1{
         padding-top: 2px !important;
     }
-
     .pt-2{
         padding-top: 4px !important;
     }
@@ -1018,16 +947,13 @@ MEDIA QUERIES FOR SMALL TABLETS AND MOBILE PHONES
     .pt-5{
         padding-top: 4rem !important;
     }
-
     /* padding bottom */
     .pb-0{
         padding-bottom: 0px !important;
     }
-
     .pb-1{
         padding-bottom: 2px !important;
     }
-
     .pb-2{
         padding-bottom: 4px !important;
     }
@@ -1040,7 +966,6 @@ MEDIA QUERIES FOR SMALL TABLETS AND MOBILE PHONES
     .pb-5{
         padding-bottom: 4rem !important;
     }
-
     /* margin md */
     /* margin y */
     .my-0{
@@ -1072,7 +997,6 @@ MEDIA QUERIES FOR SMALL TABLETS AND MOBILE PHONES
         margin-top: 4rem !important;
         margin-bottom: 4rem !important;
     }
-
     /* margin x */
     .mx-0{
         margin-left: 0px !important;
@@ -1098,9 +1022,7 @@ MEDIA QUERIES FOR SMALL TABLETS AND MOBILE PHONES
         margin-left: 4rem !important;
         margin-right: 4rem !important;
     }
-
     /* margin top */
-
     .mt-0{
         margin-top: 0px !important;
     }
@@ -1119,7 +1041,6 @@ MEDIA QUERIES FOR SMALL TABLETS AND MOBILE PHONES
     .mt-5{
         margin-top: 4rem !important;
     }
-
     /* margin bottom */
     .mb-0{
         margin-bottom: 0px !important;
@@ -1139,12 +1060,4 @@ MEDIA QUERIES FOR SMALL TABLETS AND MOBILE PHONES
     .mb-5{
         margin-bottom: 4rem !important;
     }
-    /* nav .search-bar {
-        display: none;
-
-    }
-    main .container {
-        grid-template-columns: 0 auto 5rem;
-        gap: 0;
-    } */
 }
