@@ -1,7 +1,7 @@
 
   ( async function getBlogs(){
     try {
-      const response = await axios.get(`http://localhost:3000/api/blogs`);
+      const response = await axios.get(`https://mybrand-api-p02i.onrender.com/api/blogs`);
       const blogs = response.data.blogs;
 
       const blogsList = document.querySelector('.blogs-list')
@@ -12,8 +12,8 @@
         const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];  
         const publishedDate = new Date(blog.createdAt);
         const PublishedDateString = `${publishedDate.getDate()} ${months[publishedDate.getMonth()].substring(0,3)} ${publishedDate.getFullYear()}`
-      //displaying blog on UI
-      const blogTitleString = blog.title.length > 40 ? blog.title.substring(0,40)+'...': blog.title;
+        //displaying blog on UI 
+        const blogTitleString = blog.title.length > 40 ? blog.title.substring(0,40)+'...': blog.title;
         const blogCard = `
             <li>
             <div class=" my-3 my-md-3 my-lg-4 py-lg-0 inline-block" style="width: 16rem;">

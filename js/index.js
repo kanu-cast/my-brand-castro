@@ -160,10 +160,8 @@ let isLoading = false
 myForm.addEventListener('submit', async function(evt){
     evt.preventDefault();
     isLoading = true;
-    if(email && body){
-        console.log('sending...')
+    if(isEmail(email) && validateBody(body)){
         const response = await sendMessage();
-        console.log('this is respnse', response);
         const { status, msg } = response;
         if(response && status == 201){
             Toastify({
@@ -172,13 +170,13 @@ myForm.addEventListener('submit', async function(evt){
                 destination: "https://github.com/apvarun/toastify-js",
                 newWindow: true,
                 close: true,
-                gravity: "top", // `top` or `bottom`
+                gravity: "top",
                 position: "right",
-                stopOnFocus: true, // Prevents dismissing of toast on hover
+                stopOnFocus: true,
                 style: {
                 background: "#FFFFF"
                 },
-                onClick: function(){} // Callback after click
+                onClick: function(){}
             }).showToast();
         }
     }else{
@@ -188,13 +186,13 @@ myForm.addEventListener('submit', async function(evt){
             destination: "https://github.com/apvarun/toastify-js",
             newWindow: true,
             close: true,
-            gravity: "top", // `top` or `bottom`
+            gravity: "top",
             position: "right",
-            stopOnFocus: true, // Prevents dismissing of toast on hover
+            stopOnFocus: true,
             style: {
             background: "#e84949"
             },
-            onClick: function(){} // Callback after click
+            onClick: function(){}
         }).showToast();
     }   
 
@@ -203,7 +201,7 @@ myForm.addEventListener('submit', async function(evt){
 const sendMessage = async()=>{
     try{
         const {data} = await axios.post(
-            `http://localhost:3000/api/messages/`, 
+            `https://mybrand-api-p02i.onrender.com/api/messages`,
             {email, body},
             {
             headers: {
@@ -213,20 +211,19 @@ const sendMessage = async()=>{
         alert(data.msg);
         return data;
     }catch(error){
-        console.log(error);
         Toastify({
             text: error.response.data.error || error.message,
             duration: 3000,
             destination: "https://github.com/apvarun/toastify-js",
             newWindow: true,
             close: true,
-            gravity: "top", // `top` or `bottom`
+            gravity: "top",
             position: "right",
-            stopOnFocus: true, // Prevents dismissing of toast on hover
+            stopOnFocus: true,
             style: {
             background: "#e84949"
             },
-            onClick: function(){} // Callback after click
+            onClick: function(){}
         }).showToast();
         
     }

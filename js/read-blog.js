@@ -8,9 +8,9 @@ const currentId = searchParams.get('id');
 ( async function getSingleBlog(){
     try {
         // fetching blog
-        const response = await axios.get(`http://localhost:3000/api/blogs/${currentId}`); 
+        const response = await axios.get(`https://mybrand-api-p02i.onrender.com/api/blogs/${currentId}`);
         const blog = response.data.blog;
-        console.log('this is fetchedBlog', blog);
+
         // handling Dates
         const days =['Sunday','Monday', 'Tuesday','Wednesday','Thursday','Friday','Saturday'];      
         const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
