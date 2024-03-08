@@ -1,0 +1,42 @@
+
+.hidden {
+  display: none;
+}
+
+.pagination-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  bottom: 0;
+  padding: 1rem 0;
+  justify-content: center;
+}
+
+.pagination-number{
+    font-size: 1.1rem;
+    background-color: transparent;
+    color: #E84949;
+    border: none;
+    margin: 0.25rem 0.25rem;
+    cursor: pointer;
+    height: 2.5rem;
+    width: 2.5rem;
+    border-radius: .2rem;
+}
+.pagination-button{
+    font-size: 1.1rem;
+    background-color: #E84949;
+    color: white;
+    border: none;
+    margin: 0.25rem 0.25rem;
+    cursor: pointer;
+    height: 2.5rem;
+    width: 2.5rem;
+    border-radius: .2rem;
+}
+
+
+.pagination-number.active {
+  color: white !important;
+  background: #E84949;
+}

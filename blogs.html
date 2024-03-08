@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>My Brand | Blogs</title>
+        <link rel="stylesheet" href="./styles/blogs-slider.css">
+        <link rel="stylesheet" href="./styles/style.css">
+    </head>
+    <body>
+        <section>
+            <!-- navigation bar -->
+            <div class="nav px-lg-3 box-shadow py-lg-2">
+                <div class="container py-lg-3">
+                    <div class="logo">
+                        <h1 class="bold-2">Castro<span class="clr-red">Dev</span></h1>
+                    </div>
+                    <div class="container d-none">
+                        <div class="flex-centered switcher">
+                            <span class="pointer flex-centered font-0 b-1px-hue bold-2 bg-1 btn-light active" style="height: 2rem; width: 2rem; border-radius: 50%;">light</span>
+                            <span class="pointer flex-centered font-0 b-1px-hue bold-2 clr-white bg-2 btn-dark" style="height: 2rem; width: 2rem; border-radius: 50%;">dark</span>
+                        </div>
+                        <div class="flex-centered menu-items bold-2">
+                            <span class="hoverable-link font-2-5 px-lg-3"><a href="./index.html" class="style-none">Home</a></span>
+                            <span class="hoverable-link font-2-5 px-lg-3"><a href="./index.html#about" class="style-none">About Me</a></span>
+                            <span class="hoverable-link font-2-5 px-lg-3"><a href="./index.html#skills" class="style-none">Skills</a></span>
+                            <span class="hoverable-link font-2-5 px-lg-3"><a href="./index.html#projects" class="style-none">Projects</a></span>
+                            <span class="hoverable-link font-2-5 px-lg-3"><a href="./index.html#contact" class="style-none">Contact Me</a></span>
+                            <span class="hoverable-link font-2-5 px-lg-3 active"><a href="./blogs.html" class="style-none">Blogs</a></span>
+                            <button class="btn-red py-lg-3 px-lg-3 br-2 mx-lg-5">
+                                <a href="./login.html" class="style-none">
+                                    Login
+                                    <span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-in-right" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd" d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0z"/>
+                                            <path fill-rule="evenodd" d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708z"/>
+                                        </svg>
+                                    </span>
+                                </a>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="hamburger pointer">
+                        <span> 
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
+                            </svg>
+                        </span>
+                    </div>
+                </div>
+                <div class="hidden-menu d-none d-md-none d-lg-none container text-center py-4">
+                    <div class="block menu-items bold-2">
+                        <a href="./index.html" class="style-none hoverable-link block py-3 px-lg-3">Home</a>
+                        <a href="./index.html#about" class="style-none hoverable-link block py-3 px-lg-3">About Me</a>
+                        <a href="./index.html#skills" class="style-none hoverable-link block py-3 px-lg-3">Skills</a>
+                        <a href="./index.html#projects" class="style-none hoverable-link block py-3 px-lg-3">Projects</a>
+                        <a href="./index.html#contact" class="style-none hoverable-link block py-3 px-lg-3">Contact Me</a>
+                        <a href="./blogs.html" class="style-none hoverable-link block py-3 px-lg-3 active">Blogs</a>
+                        <div class="block px-5">
+                            <a href="./login.html" class="style-none hoverable-link pointer">
+                                <button class="btn-red py-lg-3 px-lg-3 br-2 my-4 pointer" style="width: 100%;">Login
+                                    <span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-in-right" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd" d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0z"/>
+                                            <path fill-rule="evenodd" d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708z"/>
+                                        </svg>
+                                    </span>
+                                </button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="block text-center">
+                <span class="block text-center font-5 bold-2 pt-5 mt-5 py-lg-3 mt-lg-5">My <span class="clr-red">Blogs</span></span>
+                <span class="block text-center font-2-5 bold pb-lg-4">Be the first to read my most recent blogs</span></span>
+            </div>
+            <div class="container text-center py-5 py-md-5 py-lg-5">
+                    <ul id="paginated-list" data-current-page="1" aria-live="polite" class="flex blogs-list">
+                       
+                    </ul>
+                    <nav class="pagination-container mt-lg-5">
+                      <button class="pagination-button" id="prev-button" aria-label="Previous page" title="Previous page">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-left-fill" viewBox="0 0 16 16">
+                                <path d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z"/>
+                            </svg>
+                      </button>
+                      <div id="pagination-numbers"></div>
+                      <button class="pagination-button" id="next-button" aria-label="Next page" title="Next page">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-right-fill" viewBox="0 0 16 16">
+                                <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
+                            </svg>
+                      </button>
+                    </nav>
+            </div>
+        </section>
+        <footer>
+            <div class="flex-centered card-body mt-0 mt-lg-5" style="height: 3.4rem;">
+                <span class="block text-center clr-red font-1">
+                    <span class="clr-red"> &copy;</span> Munyaneza K. Castro. All rights reserved 2024</span>
+            </div>
+        </footer>
+        <!-- ======== javascript ========== -->
+        <script src="./blogs.js"></script>
+        <script src="./index.js"></script>
+    </body>
+</html>
