@@ -79,7 +79,7 @@
                     <div class="card-body my-5 my-md-5 my-lg-5 br-5  b-2px-white mt-md-5 mt-lg-5 px-4 px-md-4 px-lg-4 py-4 py-md-4 py-lg-4" style="width: 24rem;">
                         <span class="block text-center font-4 bold-1 my-4 my-md-4 my-lg-4">Signup</span>
                         <div class="block b-1px-white px-2 px-md-3 px-lg-4">
-                            <form class="block pt-4 pt-md-4 pt-lg-4 px-4 px-md-4 px-lg-4">
+                            <form class="block pt-4 pt-md-4 pt-lg-4 px-4 px-md-4 px-lg-4" method="post" name="signupForm">
                                 <div class="double-grid">
                                     <div class="block">
                                         <label class="font-1 bold ">First Name:</label>
@@ -124,7 +124,11 @@
                                 </div>
                             </form>
                             <div class="block text-center my-4 my-md-4 my-lg-4">
-                                <a href="./dashboard.html" class="style-none"><button class="pointer btn-red br-3 mt-4 mt-md-4 mt-lg-4 py-3 py-md-3 py-lg-3 px-5 px-md-5 px-lg-5">Signup</button></a>
+                                <button class="pointer btn-red br-3 mt-4 mt-md-4 mt-lg-4 py-3 py-md-3 py-lg-3 px-5 px-md-5 px-lg-5 signup-btn"
+                                    type="submit"
+                                >
+                                        Signup
+                                </button>
                             </div>
                             <div class="block text-center my-4 my-md-4 my-lg-4">
                                 <span class="font-0 py-3 py-md-3 py-lg-3 pointer  bold pointer">Already have an Account? <a href="./login.html" class="style-none"><span class="clr-red">Login here</span></a></span>
@@ -141,7 +145,7 @@
             </div>
         </footer>
         <!-- ======== javascript ========== -->
-        <script src="./signup.js"></script>
-        <script src="./index.js"></script>
+        <script src="./js/signup.js"></script>
+        <script src="./js/index.js"></script>
     </body>
 </html>

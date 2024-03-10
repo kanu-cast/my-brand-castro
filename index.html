@@ -6,6 +6,8 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>My Brand | Home</title>
         <link rel="stylesheet" href="./styles/style.css">
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.1/axios.min.js"></script>
     </head>
     <body>
         <section>
@@ -300,7 +302,9 @@
                 <p class="flex-centered pt-lg-4 font-2-5 bold">
                     I can work and intergrate easily in new teams beacause somehow coding has improved my learning abilities and adopting instincts
                     with all that said don't forget that am not a socially awkward guy even though am an introvert, I like to get out there and have some fun,
-                    for example in my free time I do standup comedy, and i've been getting better and better at it, am friendly and I can be outgoing too.
+                    just to connect and make new friends:
+                    for example in my free time I do standup comedy, karaoke and catchup some movies. I
+                    am friendly and I can be outgoing too.
                     so what are you waiting for?! ping me and lets have a chat and together I believe, we can make the world a better place, 
                     one line of code at a time.
                 </p>
@@ -334,7 +338,7 @@
                             </span>
                         </div>
                         <div class="flex-centered">
-                            <form class="block px-lg-5 px-md-4 px-4" style="width: 100%">
+                            <form class="block px-lg-5 px-md-4 px-4" style="width: 100%" method="post" name="messageForm">
                                 <label class="block clr-red bold-1 font-2 pt-lg-3">Email:</label>
                                 <input class=" py-lg-3 br-3 font-3 px-lg-3 form-control block mt-lg-3 email" placeholder="Enter email"/>
                                 <div class="block text-right pt-lg-2" style="height: 14px;">
@@ -346,12 +350,19 @@
                                     </div>
                                 </div>
                                 <label class="block clr-red bold-1 font-2 pt-lg-3">Message:</label>
-                                <textarea class=" py-lg-3 br-3 font-3 px-lg-3 form-control block my-lg-3" rows="4" placeholder="Enter your Message"></textarea>
-                                <div class="block text-center py-lg-4">
-                                    <button class="btn-red font-1 py-lg-3 px-lg-3 mt-lg-2 br-2">Send Message
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-send" viewBox="0 0 15 15">
-                                            <path d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.995L.643 7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11ZM6.636 10.07l2.761 4.338L14.13 2.576zm6.787-8.201L1.591 6.602l4.339 2.76z"/>
+                                <textarea class=" py-lg-3 br-3 font-3 px-lg-3 form-control block mt-lg-3 message" rows="4" placeholder="Enter your Message"></textarea>
+                                <div class="block text-right pt-lg-2" style="height: 14px;">
+                                    <div class="font-0 clr-red d-lg-none message-error-box">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-exclamation-circle-fill" viewBox="0 0 16 16">
+                                            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4m.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2"/>
                                         </svg>
+                                        Message min 12 chars max 1000 chars
+                                    </div>
+                                </div>
+                                <div class="block text-center py-lg-4">
+                                    <button type="submit"
+                                        style="min-width: 70%;"
+                                        class="btn-red font-1 py-lg-3 px-lg-3 mt-lg-4 br-2 pointer msg-btn">
                                     </button>
                                 </div>
                             </form>
@@ -367,7 +378,8 @@
             </div>
         </footer>
         <!-- ======== javascript ========== -->
-        <script src="./home.js"></script>
-        <script src="./index.js"></script>
+        <!-- <script src="./home.js"></script> -->
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+        <script src="./js/index.js"></script>
     </body>
 </html>
