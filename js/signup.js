@@ -4,7 +4,7 @@
 //// state 
 let firstName = '';
 let lastName = '';
-let email = '';
+let userEmail ='';
 let password = '';
 
 /// name validation here
@@ -14,12 +14,16 @@ function validateName(name) {
 }
 
 /// email validation here
-const checkIsEmail = (email) =>{
-    return String(email)
+const checkIsEmail = (userEmail)=>{
+    return String(userEmail)
         .toLowerCase()
         .match(/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/);
 }
 
+function validatePassword(passsword){
+    var regex = /^[a-zA-Z\s]{2,15}$/;
+    return String(passsword).match(regex);
+}
 // ================== FORM VALIDATION ================
 var emailForm = document.querySelector('.email');
 var emailErrorBox = document.querySelector('.email-error-box');
@@ -29,6 +33,9 @@ var firstNameErrorBox = document.querySelector('.firstName-error-box');
 
 var lastNameForm = document.querySelector('.last_name');
 var lastNameErrorBox = document.querySelector('.lastName-error-box');
+
+var passswordForm = document.querySelector('.password');
+var passswordErrorBox = document.querySelector('.password-error-box');
 
 //// eventlisteners
 emailForm.addEventListener('keyup', function(evt){
@@ -41,9 +48,20 @@ emailForm.addEventListener('keyup', function(evt){
     }
     emailForm.classList.remove('b-2px-red');
     emailErrorBox.classList.add('d-lg-none');
-    return email = checkIsEmail(value)[0];
+    return userEmail = checkIsEmail(value)[0];
 });
+//// eventlisteners
+passswordForm.addEventListener('keyup', function(evt){
+    const { value } = evt.target;
+    if(!validatePassword(value)){
+        passswordForm.classList.add('b-2px-red');
+        passswordErrorBox.classList.remove('d-lg-none');
+    }
+    passswordForm.classList.remove('b-2px-red');
+    passswordErrorBox.classList.add('d-lg-none');
+    return password = value;
 
+})
 //// eventlisteners
 firstNameForm.addEventListener('keyup', function(evt){
     console.log('this is log', evt.target.value);
@@ -57,7 +75,6 @@ firstNameForm.addEventListener('keyup', function(evt){
     firstNameErrorBox.classList.add('d-lg-none');
     return firstName = value;
 });
-
 //// eventlisteners
 lastNameForm.addEventListener('keyup', function(evt){
     console.log('this is log', evt.target.value);
@@ -74,15 +91,21 @@ lastNameForm.addEventListener('keyup', function(evt){
 
 ////// handing form submit and sending request
 
-const myForm = document.querySelector("form[name=signupForm]");
+const signupForm = document.querySelector("form[name=signupForm]");
 var myBtn = document.querySelector(".signup-btn");
 
-myForm.addEventListener('submit', async function(evt){
+signupForm.addEventListener('submit', async function(evt){
     evt.preventDefault();
-    if(firstName && lastName && email && password){
+    if(validateName(firstName) && validateName(lastName) && checkIsEmail(userEmail) && password.length > 3){
         const response = await sendRequest();
         const { status, msg } = response;
-        if(response && status == 201){
+        if(response.msg && response.token){
+            localStorage.setItem('token', response.token);
+            localStorage.setItem('currentUser', response.user._id);
+            localStorage.setItem('role', response.user.role);
+            localStorage.setItem('firstName', response.user.firstName);
+            localStorage.setItem('lastName', response.user.lastName);
+            
             Toastify({
                 text: msg,
                 duration: 3000,
@@ -97,6 +120,9 @@ myForm.addEventListener('submit', async function(evt){
                 },
                 onClick: function(){}
             }).showToast();
+            setTimeout(()=>{
+                window.location.href = './blogs.html';
+            }, 3000)
         }
     }else{
         Toastify({
@@ -119,19 +145,20 @@ myForm.addEventListener('submit', async function(evt){
 
 const sendRequest = async()=>{
     try{
+        console.log('this is mysterious email', email)
         const {data} = await axios.post(
             `https://mybrand-api-p02i.onrender.com/api/auth/signup`,
-            {firstName, lastName, email, password },
+            {firstName, lastName, password, email:userEmail},
             {
             headers: {
               'Content-Type': 'application/json'
             }
         })
-        alert(data.msg);
         return data;
     }catch(error){
+        console.log(error);
         Toastify({
-            text: error.response.data.error || error.message,
+            text: error.response.data.error.details[0].message || "Email already in use",
             duration: 3000,
             destination: "https://github.com/apvarun/toastify-js",
             newWindow: true,

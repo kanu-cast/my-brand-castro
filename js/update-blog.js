@@ -1,16 +1,37 @@
 
-let storageBlogs = localStorage.getItem('blogs');
-var allBlogs = JSON.parse(storageBlogs);
 // get div where blog will be displayed
 const formBlock = document.querySelector('.form-block');
 const btns = document.querySelector('.btns');
+
 // get id from the url
 const searchParams = new URLSearchParams(window.location.search);
 const currentId = searchParams.get('id');
-// filtering blogs to only display one with id in url
-var blog = allBlogs.filter(item => item.id == currentId)[0];
 
-const formContent = `
+/// get current user from local storage
+const currentUser = localStorage.getItem('currentUser');
+const token = localStorage.getItem('token');
+const isAdmin = localStorage.getItem('role');
+if(!currentUser || isAdmin !== 'admin' || !token){
+  window.location.href = './login.html';
+}
+var logoutBtn = document.querySelectorAll('.logout');
+logoutBtn.forEach((btn, idx)=>{
+  btn.addEventListener('click', ()=>{  
+      localStorage.clear();
+      window.location.href = './login.html';
+  });
+});
+// fetch blog from backend api
+(async function getBlog(){
+    const response = await axios.get(`https://mybrand-api-p02i.onrender.com/api/blogs/${currentId}`);   
+    const blog = response.data.blog;    
+    console.log('this is fetched blog', blog);
+
+    // authorize user to edit or redirect
+    if(currentUser !== blog.author._id || !token || userRole !== 'admin'){
+        window.history.back();
+    }
+    const formContent = `
         <div class="block">
             <label class="font-1 bold">Title:*</label>
             <input type="text" name="blogTitle" class="font-3 bold-1 br-2 form-control py-lg-3 px-lg-3 title" style="height: 2rem;" value="${blog.title}"/>
@@ -24,8 +45,8 @@ const formContent = `
             </div>
         </div>
         <div class="block b-2px-dashed-hue o-hidden mt-lg-0 relative py-lg-0 img-cont" style="height:auto; width:100%">
-            <input type="file" name="blogImage" class="image-selector opacity-0 absolute pointer" style="height: 100%; width: 100%;" value="${blog.imagePath}"/>
-            <img src="${blog.imagePath}"
+            <input type="file" name="blogImage" class="image-selector opacity-0 absolute pointer" style="height: 100%; width: 100%;" value="${blog.imageObj.url}"/>
+            <img src="${blog.imageObj.url}"
             class="image-preview img-fit block " style="height: auto; width: 100%;"/>
         </div>
         <div class="block text-right pt-lg-2 mb-lg-4" style="height: 14px;">
@@ -38,36 +59,36 @@ const formContent = `
         </div>
     `
 
-formBlock.innerHTML += formContent;
-editor1.setHTMLCode(blog.body);
+    formBlock.innerHTML += formContent;
+    editor1.setHTMLCode(blog.body);
+    var imgInput = document.querySelector('.image-selector');
+    imgInput.addEventListener('change', changePreview);
 
+})();
 // ===============  image preview before upload ==================
-var imgInput = document.querySelector('.image-selector');
 function changeImageSrc(newSrc) {
     var img = document.querySelector('.image-preview')
-    img.src = `./assets/${newSrc}`;
+    img.src = newSrc;
 }
 const changePreview = (e)=>{
     let reader = new FileReader();
-      let file = e.target.files[0];
-      console.log('this is file', file);
+    let file = e.target.files[0];
     reader.onload = () => {
         if(reader.readyState == 2){
             localStorage.setItem('uploadedImage', reader.result);
-            uploadedImage.src = reader.result;
+            // uploadedImage.src = reader.result;
             blogImage = file;
-            changeImageSrc(file.name)
+            changeImageSrc(reader.result);
         }
     }
     if(file){
         reader.readAsDataURL(e.target.files[0])
     }
 };
-imgInput.addEventListener('change', changePreview);
 
 // ================= form validation ===========================
 
-const myForm = document.querySelector("form[name=blogForm]");
+const form = document.querySelector("form[name=blogForm]");
 var titleInput = document.querySelector('.title');
 var titleErrorBox = document.querySelector('.title-error-box');
 
@@ -78,12 +99,77 @@ var uploadedImage = document.querySelector('.image-preview');
 var textArea = document.querySelector('.rte-modern')
 var textAreaErrorBox = document.querySelector('.textarea-error-box');
 
-myForm.addEventListener('submit', function(e){
+
+const updateBlog = async (payload)=>{
+    try{
+        const { data } = await axios.put(
+            `https://mybrand-api-p02i.onrender.com/api/blogs/${currentId}`,
+            {
+                title: payload.title,
+                body: payload.body,
+                uploadedImage: payload.uploadedImage
+            },
+            {
+            headers: {
+                'Content-Type': 'multipart/form-data',
+                'Authorization': 'Bearer ' + token
+            }
+        })
+        if(data.status == 200 && data.blog){
+            Toastify({
+                text: data.msg,
+                duration: 3000,
+                destination: "https://github.com/apvarun/toastify-js",
+                newWindow: true,
+                close: true,
+                gravity: "top",
+                position: "right",
+                stopOnFocus: true,
+                style: {
+                background: "#FFFFF"
+                },
+                onClick: function(){}
+            }).showToast();
+            setTimeout(()=>{
+                window.location.href =`./read-blog.html?id=${data.blog._id}`
+            }, 2000)
+        }
+        console.log('this is responseData', data);
+        return data;
+    }catch(error){
+        console.log(error);
+        Toastify({
+            text: error.response.data.error.details[0].message ||  error.response.data.error || error.response.data ||  error.message,
+            duration: 3000,
+            destination: "https://github.com/apvarun/toastify-js",
+            newWindow: true,
+            close: true,
+            gravity: "top",
+            position: "right",
+            stopOnFocus: true,
+            style: {
+                background: "#e84949"
+            },
+            onClick: function(){}
+        }).showToast();
+        
+    }
+}
+
+
+form.addEventListener('submit', function(e){
 	e.preventDefault();
 	const data = new FormData(e.target);
     const blogTitle = data.get('blogTitle');
     const blogImage = data.get('blogImage');
     const blogBody = editor1.getText();
+
+    const payload = {
+        title: blogTitle,
+        body: blogBody,
+        uploadedImage: blogImage
+    }
+    console.log('this is payload', payload);
     console.log('this is blogImage', blogImage.name);
     if(!blogTitle){
         titleInput.classList.add('b-2px-red');
@@ -94,20 +180,7 @@ myForm.addEventListener('submit', function(e){
         textAreaErrorBox.classList.remove('d-lg-none');
     }
     if(blogTitle.length && blogBody.length > 10){
-        allBlogs.map(item =>{
-            if(item.id == blog.id){
-                console.log('inside map')
-                item.title = blogTitle;
-                item.imagePath = localStorage.getItem('uploadedImage');
-                item.body = blogBody
-                item.published = Date.now();
-                item.author = {firstName:'Munyaneza', lastName:'Castro'}
-            }
-        })
-        console.log('this is allBlogs after map', allBlogs);
-        const stringBlogs = JSON.stringify(allBlogs);
-        localStorage.setItem('blogs', stringBlogs);
-
-        window.location.href =`./read-blog.html?id=${blog.id}`;
-    }	
+        const response = updateBlog(payload);
+        console.log('this is response v', response);
+    }
 });

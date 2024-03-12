@@ -6,8 +6,8 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>My Brand | Read</title>
         <link rel="stylesheet" href="./styles/style.css">
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.1/axios.min.js"></script>
-
     </head>
     <body>
         <section>
@@ -127,15 +127,15 @@
                         </span>
                     </div>
                     <div class="block py-lg-0">
-                        <form>
+                        <form name="commentForm" method="post">
                             <label for="" class="font-1 clr-red bold-1">
                                 Comment:*
                             </label>
-                            <textarea rows="12" class="form-control br-3 comment px-lg-3 py-lg-3" placeholder="Enter comment here"></textarea>
+                            <textarea name="comment" rows="12" class="form-control br-3 comment px-lg-3 py-lg-3" placeholder="Enter comment here"></textarea>
+                            <button class="font-2 bold btn-red block py-lg-3 px-lg-4 mt-lg-4 br-3 pointer" type="submit">
+                                Publish Comment
+                            </button>
                         </form>
-                        <button class="font-2 bold btn-red block py-lg-3 px-lg-4 mt-lg-4 br-3">
-                            Publish Comment
-                        </button>
                     </div>
                 </div>
             </div>
@@ -148,6 +148,7 @@
             </div>
         </footer>
         <!-- ======== javascript ========== -->
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
         <script src="./js/read-blog.js"></script>
         <script src="./js/index.js"></script>
 

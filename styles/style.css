@@ -552,6 +552,12 @@ body{
     justify-content: space-between !important;
     
 }
+.flex-centered-vertical-nospace{
+    display: flex;
+    align-items: center !important;
+    /* justify-content: space-between !important; */
+    
+}
 .flex-box{
     display: flex;
 
