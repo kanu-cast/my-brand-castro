@@ -6,7 +6,9 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>My Brand | Signup</title>
         <link rel="stylesheet" href="./styles/style.css">
-
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.1/axios.min.js"></script>
+    </head>
     </head>
     <body>
         <section>
@@ -120,16 +122,24 @@
                                 </div>
                                 <div class="block">
                                     <label class="font-1 bold ">Password:</label>
-                                    <input type="password"  class="font-2 py-3 py-md-3 py-lg-3 br-2 px-lg-2 form-control"/>
+                                    <input type="password"  class="font-2 py-3 py-md-3 py-lg-3 br-2 px-lg-2 form-control password"/>
+                                    <div class="block text-right pt-lg-2" style="height: 14px;">
+                                        <div class="font-0 clr-red d-lg-none password-error-box">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-exclamation-circle-fill" viewBox="0 0 16 16">
+                                                <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4m.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2"/>
+                                            </svg>
+                                            Must be atleast 4 chars
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="block text-center my-4 my-md-4 my-lg-4">
+                                    <button class="pointer btn-red br-3 mt-4 mt-md-4 mt-lg-4 py-3 py-md-3 py-lg-3 px-5 px-md-5 px-lg-5 signup-btn"
+                                        type="submit"
+                                    >
+                                            Signup
+                                    </button>
                                 </div>
                             </form>
-                            <div class="block text-center my-4 my-md-4 my-lg-4">
-                                <button class="pointer btn-red br-3 mt-4 mt-md-4 mt-lg-4 py-3 py-md-3 py-lg-3 px-5 px-md-5 px-lg-5 signup-btn"
-                                    type="submit"
-                                >
-                                        Signup
-                                </button>
-                            </div>
                             <div class="block text-center my-4 my-md-4 my-lg-4">
                                 <span class="font-0 py-3 py-md-3 py-lg-3 pointer  bold pointer">Already have an Account? <a href="./login.html" class="style-none"><span class="clr-red">Login here</span></a></span>
                             </div>
@@ -145,6 +155,7 @@
             </div>
         </footer>
         <!-- ======== javascript ========== -->
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
         <script src="./js/signup.js"></script>
         <script src="./js/index.js"></script>
     </body>

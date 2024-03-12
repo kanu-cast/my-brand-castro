@@ -1,4 +1,11 @@
 
+var logoutBtn = document.querySelectorAll('.logout');
+logoutBtn.forEach((btn, idx)=>{
+  btn.addEventListener('click', ()=>{  
+      localStorage.clear();
+      window.location.href = './login.html';
+  });
+});
   ( async function getBlogs(){
     try {
       const response = await axios.get(`https://mybrand-api-p02i.onrender.com/api/blogs`);

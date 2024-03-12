@@ -6,7 +6,8 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>My Brand | Login</title>
         <link rel="stylesheet" href="./styles/style.css">
-
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.1/axios.min.js"></script>
     </head>
     <body>
         <section>
@@ -79,10 +80,10 @@
                     <div class="card-body my-5 my-md-5 my-lg-5 br-5  b-2px-white mt-md-5 mt-lg-5 px-4 px-md-4 px-lg-4 py-4 py-md-4 py-lg-4" style="width: 24rem;">
                         <span class="block text-center font-4 bold-1 my-4 my-md-4 my-lg-4 ">Login</span>
                         <div class="block b-1px-white px-2 px-md-3 px-lg-4">
-                            <form class="block pt-4 pt-md-4 pt-lg-4 px-4 px-md-4 px-lg-4">
+                            <form class="block pt-4 pt-md-4 pt-lg-4 px-4 px-md-4 px-lg-4" method="post" name="signinForm">
                                 <div class="block">
                                     <label class="font-1 bold ">Email:</label>
-                                    <input type="text" name="email" class="bfont-2 py-3 py-md-3 py-lg-3 br-2 px-lg-3 form-control email"/>
+                                    <input type="text" name="email" class="font-2 py-3 py-md-3 py-lg-3 br-2 px-lg-3 form-control email"/>
                                     <div class="block text-right pt-lg-2" style="height: 14px;">
                                         <div class="font-0 clr-red d-lg-none error-box">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-exclamation-circle-fill" viewBox="0 0 16 16">
@@ -94,7 +95,15 @@
                                 </div>
                                 <div class="block">
                                     <label class="font-1 bold c">Password:</label>
-                                    <input type="password"  class="font-2 py-3 py-md-3 py-lg-3 br-2 px-lg-3 form-control"/>
+                                    <input type="password"  class="font-2 py-3 py-md-3 py-lg-3 br-2 px-lg-3 form-control password"/>
+                                    <div class="block text-right pt-lg-2" style="height: 14px;">
+                                        <div class="font-0 clr-red d-lg-none password-error-box">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-exclamation-circle-fill" viewBox="0 0 16 16">
+                                                <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4m.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2"/>
+                                            </svg>
+                                            Must be atleast 4 chars
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="form-group block pt-lg-3">
                                     <input  class="pointer font-0" type="checkbox"/>
@@ -103,10 +112,10 @@
                                         <span class="f-right font-0 py-3 py-md-3 py-lg-3 pointer clr-red bold">Forgot Password?</span>
                                     </a>
                                 </div>
+                                <div class="block text-center my-4 my-md-4 my-lg-4">
+                                    <button class="pointer btn-red br-3 mt-4 mt-md-4 mt-lg-4 py-3 py-md-3 py-lg-3 px-5 px-md-5 px-lg-5">Login</button>
+                                </div>
                             </form>
-                            <div class="block text-center my-4 my-md-4 my-lg-4">
-                                <a href="./dashboard.html" class="style-none"><button class="pointer btn-red br-3 mt-4 mt-md-4 mt-lg-4 py-3 py-md-3 py-lg-3 px-5 px-md-5 px-lg-5">Login</button></a>
-                            </div>
                         </div>
                         <div class="block text-center my-4 my-md-4 my-lg-4">
                             <span class="font-0 py-3 py-md-3 py-lg-3 pointer  bold pointer">Don't have an Account? <a href="./signup.html" class="style-none"><span class="clr-red">Signup here</span></a></span>
@@ -122,6 +131,7 @@
             </div>
         </footer>
         <!-- ======== javascript ========== -->
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
         <script src="./js/login.js"></script>
         <script src="./js/index.js"></script>
     </body>

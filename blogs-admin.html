@@ -1,4 +1,4 @@
-<!DOCTYPE html>js/
+<!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8">
@@ -7,6 +7,8 @@
         <title>My Brand | Blogs</title>
         <link rel="stylesheet" href="./styles/blogs-slider.css">
         <link rel="stylesheet" href="./styles/style.css">
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.1/axios.min.js"></script>
 
     </head>
         <body class="relative py-0 my-0 my-md-0 py-md-0 my-lg-0 py-lg-0">
@@ -54,16 +56,15 @@
                     <span class="hovereble-link block py-3 px-lg-3"><a href="./send-mail.html" class="style-none">Send Mail </a></span>
                     <span class="hovereble-link block py-3 px-lg-3"><a href="./messages.html" class="style-none">Messages</a></span>
                     <div class="block px-5">
-                        <a href="./login.html" class="style-none hoverable-link pointer">
-                            <button class="btn-red py-lg-3 px-lg-3 br-2 my-4 pointer" style="width: 100%;">Logout
-                                <span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-in-right" viewBox="0 0 16 16">
-                                        <path fill-rule="evenodd" d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0z"/>
-                                        <path fill-rule="evenodd" d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708z"/>
-                                    </svg>
-                                </span>
-                            </button>
-                        </a>
+                        <button class="btn-red py-lg-3 px-lg-3 br-2 my-4 pointer logout"
+                            style="width: 100%;">Logout
+                            <span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-in-right" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0z"/>
+                                    <path fill-rule="evenodd" d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708z"/>
+                                </svg>
+                            </span>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -99,7 +100,7 @@
                         <span class="pointer flex-centered font-0 b-1px-hue bold-2 bg-1 btn-light active" style="height: 2rem; width: 2rem; border-radius: 50%;">light</span>
                         <span class="pointer flex-centered font-0 b-1px-hue bold-2 clr-white bg-2 btn-dark" style="height: 2rem; width: 2rem; border-radius: 50%;">dark</span>
                     </div>
-                    <a href="./login.html" class="style-none">
+                    <div class=" logout">
                         <span class="logout flex-box f-right pointer">
                             <span class="clr-red bold-2 font-2 inline-block">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-power" viewBox="0 0 16 16">
@@ -111,7 +112,7 @@
                                 Logout
                             </span>
                         </span>
-                    </a>
+                    </div>
                 </div>
                 <div class="block  pt-4 pt-md-4 px-2 px-md-5 px-lg-5 pt-lg-4 mt-lg-5 ">
                     <h1 class="block font-5 bold-2 px-3 px-md-3 px-lg-3 relative ">Blogs
@@ -151,6 +152,7 @@
             </footer>
         </section>
             <!-- ======== javascript ========== -->
+            <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
             <script src="./js/blogsAdmin.js"></script>
             <script src="./js/index.js"></script>
     </body>
