@@ -113,7 +113,7 @@ let email = "";
 let body = "";
 // message body validation
 function validateBody(body){
-    var regex = /^[A-Za-z][A-Za-z0-9\s]*$/;
+    var regex = /^[A-Za-z][A-Za-z0-9\s][?.!,]*$/;
     return String(body).match(regex);
 }
 
