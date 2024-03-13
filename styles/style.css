@@ -76,6 +76,9 @@ body{
 .box-shadow{
     box-shadow: 0px 0px 4px 2px rgba(58, 36, 36, 0.2) !important;
 }
+.box-shadow-red{
+    box-shadow: 0px 0px 2px 1px #E84949 !important;
+}
 .card-body{
     background: var(--color-primary);
     color: white !important;
@@ -249,6 +252,25 @@ body{
     display: grid;
     place-items: center;
     font-size: 0.9rem;
+}
+.account-popup{
+    background: var(--color-white);
+    height: 20rem;
+    width: 14rem;
+    top: 3rem;
+    right: -2.4rem;
+}
+.hovered-hue:hover{
+    background-color: #E84949 !important;
+    color: white;
+}
+.camera{
+    bottom: -4px;
+    right: -4px;
+    background: black;
+    height: 1.6rem;
+    width: 1.6rem;
+    opacity: 0.8;
 }
 .comment-card{
     width: 76%;
@@ -560,7 +582,6 @@ body{
 }
 .flex-box{
     display: flex;
-
 }
 .flex-centered{
     display: flex;

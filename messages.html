@@ -10,6 +10,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.1/axios.min.js"></script>
 
     </head>
+         <!-- delete modal -->
         <body class="relative py-0 my-0 my-md-0 py-md-0 my-lg-0 py-lg-0">
             <div class="modal d-lg-none">
                 <div class="modal-card br-3" >
@@ -20,8 +21,25 @@
                             </span>
                         </div>
                         <div class="block text-right py-lg-2 pt-lg-3">
-                            <button id='myid' class="inline-block mx-2 mx-md-2 mx-lg-2 font-2 card-body py-lg-3 px-lg-4 mt-lg-2 br-2 cancel pointer">Cancel</button>
-                            <button class="inline-block mx-2 mx-md-2 mx-lg-2 btn-red font-2 py-lg-3 px-lg-4 mt-lg-2 br-2 pointer delete-button">Delete</button>  
+                            <button id='myid' class="inline-block mx-2 mx-md-2 mx-lg-2 font-2 card-body py-lg-3 px-lg-4 mt-lg-2 br-2 cancel  pointer">Cancel</button>
+                            <button class="inline-block mx-2 mx-md-2 mx-lg-2 btn-red font-2 py-lg-3 px-lg-4 mt-lg-2 br-2 pointer delete-button ">Delete</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- read message modal -->
+            <div class="modal msg-modal d-lg-none">
+                <div class="modal-card br-3" >
+                    <div class="block text-center">
+                        <div class="block messageEmail">
+                           
+                        </div>
+                        <div class="block messageBody">
+                           
+                        </div>
+                        <div class="block text-right py-lg-2 pt-lg-3">
+                            <button id='myid' class="inline-block mx-2 mx-md-2 mx-lg-2 font-2 card-body py-lg-3 px-lg-4 mt-lg-2 br-2 cancel-reply pointer">Cancel</button>
+                            <button class="inline-block mx-2 mx-md-2 mx-lg-2 btn-red font-2 py-lg-3 px-lg-4 mt-lg-2 br-2 pointer reply-button ">Reply Message</button>  
                         </div>
                     </div>
                 </div>
@@ -71,13 +89,14 @@
             <div class="card-body sidemenu b-1px-hue px-4 px-md-4 px-lg-4" style="width: 300px; min-height: 100vh; position: fixed;" >
                 <div class="block relative py-4 py-md-4 py-lg-4 mt-lg-4">
                     <div class="flex-box">
-                        <div class="inline-block br-rnd b-1px-hue relative" 
-                            style="width: 2.4rem; height: 2.4rem; background-image: url('./assets/ceo2.JPG'); background-position: top; background-size: cover;"
-                        >
+                        <div class="admin-initials flex-centered bg-red flex-centered-vertical br-rnd b-1px-hue relative uppercase" 
+                            style="width: 2.4rem; height: 2.4rem;"
+                        >   
+                            
                             <span class="absolute online"> </span>
                         </div>
-                        <div class="inline-block pt-3 pt-md-3 pt-lg-3 px-3 px-md-3 px-lg-3 bold-2 author-names" style="height: 3rem;">
-                            Munyaneza Castro
+                        <div class="admin-names inline-block pt-3 pt-md-3 pt-lg-3 px-3 px-md-3 px-lg-3 bold-2 author-names" style="height: 3rem;">
+                            
                         </div>
                     </div>
                 </div>
@@ -139,6 +158,7 @@
         </section>
             <!-- ======== javascript ========== -->
             <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+            <script src="./js/admin.js"></script>
             <script src="./js/messages.js"></script>
             <script src="./js/index.js"></script>
     </body>
