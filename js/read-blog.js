@@ -40,7 +40,7 @@ const currentId = searchParams.get('id');
             </div>
             <div class="img-wrapper br-3 mt-3 mt-md-3 mt-lg-3" >
                 <img src=${blog.imageObj.url}
-                class=" br-3" style="width:100%; max-height:30rem"/>
+                class=" br-3" style="width:100%; height:auto"/>
             </div>
             <div class="block py-4 py-md-4 py-lg-4 relative">
                     <div class="flex-box">
