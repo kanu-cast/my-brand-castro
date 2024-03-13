@@ -113,7 +113,7 @@ let email = "";
 let body = "";
 // message body validation
 function validateBody(body){
-    var regex = /^[a-zA-Z\s]{12,1000}$/;
+    var regex = /^[A-Za-z][A-Za-z0-9\s][.!?\\-:;"']*$/;
     return String(body).match(regex);
 }
 
@@ -153,14 +153,13 @@ messageForm.addEventListener('keyup', function(evt){
     }
     messageForm.classList.remove('b-2px-red');
     messageErrorBox.classList.add('d-lg-none');
-    return body = validateBody(value)[0];
+    return body = value;
 });
 
 let isLoading = false
 myForm.addEventListener('submit', async function(evt){
     evt.preventDefault();
-    isLoading = true;
-    if(isEmail(email) && validateBody(body)){
+    if(isEmail(email) && body.length >= 12){
         const response = await sendMessage();
         const { status, msg } = response;
         if(response && status == 201){
@@ -227,16 +226,4 @@ const sendMessage = async()=>{
         }).showToast();
         
     }
-}
-
-if(isLoading){
-    const inner = `
-    <img src='./assets/spinnerTrans.gif' class="inline" style="height:1rem; width:1rem;"/>`
-    myBtn.innerHTML = inner;
-}else{
-    const inner = `Send Message
-    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-send" viewBox="0 0 15 15">
-        <path d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.995L.643 7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11ZM6.636 10.07l2.761 4.338L14.13 2.576zm6.787-8.201L1.591 6.602l4.339 2.76z"/>    
-    </svg>`
-    myBtn.innerHTML += inner;
 }
