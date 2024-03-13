@@ -36,11 +36,10 @@ logoutBtn.forEach((btn, idx)=>{
         `   <div class=" block card br-2 px-lg-3 py-2 py-md-3 py-lg-3 mt-1 mt-md-1 mt-lg-2 box-shadow pointer" id="${message._id}">
                 <div class="flex-centered-vertical"  style="width:100%;">
                     <div class="flex-centered-vertical-nospace credentials msg-card" style="width:40%;" id="${message._id}">
-                        <div class="inline-block br-rnd b-1px-hue relative " 
-                            style="width: 2.4rem; height: 2.4rem; background-image: url('./assets/ceo2.JPG'); background-position: top; background-size: cover;"
-                        >
-                            <span class="absolute online"> </span>
-                        </div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+                            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+                        </svg>
                         <div class="inline-block bold px-3 px-md-3 px-lg-3 font-2 author-names f-left">
                             <span class="d-none font-1"> ${message.email > 30 ? message.email.substring(0,30)+'...' : message.email}</span>
                             <span class="font-1 d-block d-md-none d-lg-none">${message.email > 20 ? message.email.substring(0,20)+'...' : message.email}</span>
@@ -102,7 +101,7 @@ const openModal = (e) =>{
     modal.id = e.target.id;
     messageId = e.target.id;
 }
-// read logic here
+// read logic here createdAt
 const msgModal = document.querySelector('.msg-modal');
 const cancelReplyButton = document.querySelector('.cancel-reply');
 const replyMessageButton = document.querySelector('.reply-button');
@@ -131,6 +130,24 @@ const fetchSingleMsg = async(e)=>{
         );
         if(data.status == 200){
             console.log('data', data)
+             // handling Dates
+            const days =['Sunday','Monday', 'Tuesday','Wednesday','Thursday','Friday','Saturday'];      
+            const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
+            const nthValue =(date)=>{
+            if (date.toString().length > 2 || date.toString().length == 0) return 'undefined';
+            if (Number(date) > 10 && Number(date) >= 20) return 'th';
+            if(date.toString().length > 1 && Number(date) > 20){
+                const newDate = Number(date.toString().split('')[1]);
+                return newDate > 3 ? 'th' : newDate == 0 ? 'th' : newDate == 1 ? 'st' : newDate == 2 ? 'nd' : 'rd';
+            }
+            const newDate = Number(date)
+            return newDate > 3 ? 'th' : newDate == 0 ? 'th' : newDate == 1 ? 'st' : newDate == 2 ? 'nd' : 'rd';
+            
+            }
+
+            const publishedDate = new Date(data.message.createdAt);
+            const PublishedDateString = `${days[publishedDate.getDay()]}, The ${publishedDate.getDate() + nthValue(publishedDate.getDate())} ${months[publishedDate.getMonth()]} ${publishedDate.getFullYear()}`
             openReadModal(e);
             messageEmail.innerHTML = `
                 <span class="block clr-red my-lg-4 font-3-5">
@@ -141,7 +158,7 @@ const fetchSingleMsg = async(e)=>{
                         </svg>
                     </span>
                     <span> ${data.message.email}</span>
-                    <span class="block font-0 clr-white bold">Sent : ${data.message.createdAt}</span>    
+                    <span class="block font-0 clr-white bold">Sent : ${PublishedDateString}</span>    
                 </span>
             `
             messageBody.innerHTML = `<p class="py-lg-4">${data.message.body}</p>`

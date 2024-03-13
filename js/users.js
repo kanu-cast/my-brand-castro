@@ -35,11 +35,10 @@ logoutBtn.forEach((btn, idx)=>{
             <div class="user-card block card br-2 px-lg-3 py-2 py-md-3 py-lg-3 mt-1 mt-md-1 mt-lg-2 box-shadow">
                 <div class="flex-centered-vertical"  style="width:100%;">
                     <div class="flex-centered-vertical-nospace credentials" style="width:40%;" id="${user._id}">
-                        <div class="inline-block br-rnd b-1px-hue relative " 
-                            style="width: 2.4rem; height: 2.4rem; background-image: url('./assets/ceo2.JPG'); background-position: top; background-size: cover;"
-                        >
-                            <span class="absolute online"> </span>
-                        </div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+                            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+                        </svg>
                         <div class="inline-block bold px-3 px-md-3 px-lg-3 font-2 author-names">
                             ${fullNames > 24 ? fullNames.substring(0,24)+'...' : fullNames}
                         </div>
