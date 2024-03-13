@@ -10,8 +10,8 @@ const currentId = searchParams.get('id');
 /// get current user from local storage
 const currentUser = localStorage.getItem('currentUser');
 const token = localStorage.getItem('token');
-const isAdmin = localStorage.getItem('role');
-if(!currentUser || isAdmin !== 'admin' || !token){
+const userRole = localStorage.getItem('role');
+if(!currentUser || userRole !== 'admin' || !token){
   window.location.href = './login.html';
 }
 var logoutBtn = document.querySelectorAll('.logout');
