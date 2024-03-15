@@ -1,10 +1,13 @@
 var messageId = '';
+// Tracking Current User Information
 const token = localStorage.getItem('token');
 const currentUser = localStorage.getItem('currentUser');
 const isAdmin = localStorage.getItem('role');
+// Security Check
 if(!currentUser || isAdmin !== 'admin' || !token){
   window.location.href = './login.html';
 }
+// Logout Option
 var logoutBtn = document.querySelectorAll('.logout');
 logoutBtn.forEach((btn, idx)=>{
   btn.addEventListener('click', ()=>{  
@@ -12,7 +15,7 @@ logoutBtn.forEach((btn, idx)=>{
       window.location.href = './login.html';
   });
 });
-//capturing all users from localstorage
+// Fetching Users From Server
 (async function getUsers(){
     try{
         const response = await axios.get(
@@ -26,7 +29,6 @@ logoutBtn.forEach((btn, idx)=>{
             }
         );
         const allUsers = response.data.users;
-        // console.log('this is all users ', allUsers)
         const userList = document.querySelector('.userList');
         allUsers.forEach((user, idx)=>{
         const fullNames = user.firstName +" "+ user.lastName;

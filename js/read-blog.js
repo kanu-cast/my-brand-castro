@@ -1,12 +1,12 @@
 const token = localStorage.getItem('token');
 const currentUser = localStorage.getItem('currentUser');
 const isAdmin = localStorage.getItem('role');
-
+// Dom Elements
 const blogHeader = document.querySelector('.blog-header');
 const blogBody = document.querySelector('.blog-body');
 const blogStats = document.querySelector('.blog-stats');
 const blogComments = document.querySelector('.comment-section');
-
+// Getting Id from url
 const searchParams = new URLSearchParams(window.location.search);
 const currentId = searchParams.get('id');
 ( async function getSingleBlog(){
@@ -191,7 +191,7 @@ const currentId = searchParams.get('id');
             `
             blogComments.innerHTML += commentCards; 
         }); 
-        // like blog
+        // Like Blog
         const likeBlogBtns =  document.querySelectorAll('.likeBlog')
         likeBlogBtns.forEach((btn, idx)=>{
             btn.addEventListener('click', function(e){  
@@ -199,17 +199,16 @@ const currentId = searchParams.get('id');
                 likeBlog();
             });
         });
-        // like comment 
+        // Like Comment 
         const likeButtons = document.querySelectorAll(".likeComment");
         likeButtons.forEach((button, idx)=>{
             button.addEventListener('click',  function(e){
                 e.preventDefault();
                 const commentId = e.target.id;
-                console.log('this is commentid', commentId);
                 const res =  likeComment(commentId);
             })
         });
-        // dislike comment
+        // Dislike Comment
         const disLikeButtons = document.querySelectorAll(".disLikeComment");
         disLikeButtons.forEach((button, idx)=>{
             button.addEventListener('click',  function(e){
@@ -219,14 +218,11 @@ const currentId = searchParams.get('id');
                 const res =  disLikeComment(commentId);
             })
         });
-        
-
-     
     } catch (errors){
         console.error(errors);
     }
 })();
-// like Blog request
+// Like Blog Request
 const likeBlog = async()=>{
     try{
         if(token){
@@ -283,13 +279,12 @@ const likeBlog = async()=>{
 }
 const likeBlogBtns =  document.querySelectorAll('.likeBlog');
 likeBlogBtns.forEach((btn, idx)=>{
-    alert('yupe')
     btn.addEventListener('click', function(e){  
         e.preventDefault();
         likeBlog();
     });
 })
-// like comment request
+// Like Comment Request
 const likeComment = async(commentId)=>{
     try{
         if(token){
@@ -352,7 +347,7 @@ const likeComment = async(commentId)=>{
         }).showToast();
     };
 }
-// like comment request
+// Like Comment Request
 const disLikeComment = async(commentId)=>{
     try{
         if(token){
@@ -414,7 +409,7 @@ const disLikeComment = async(commentId)=>{
             onClick: function(){}
         }).showToast();
     };
-}
+};
 const commentForm = document.querySelector("form[name=commentForm]");
 commentForm.addEventListener('submit', async function(e){
     e.preventDefault();
@@ -441,7 +436,7 @@ commentForm.addEventListener('submit', async function(e){
           },2000);
     }
 });
-// send comment
+// Send Comment
 const sendRequest = async(comment)=>{
     try{
         if(token){
@@ -462,7 +457,7 @@ const sendRequest = async(comment)=>{
         }
        
     }catch(error){
-        console.log(error);
+        console.error(error);
         Toastify({
             text:error.response.data.error.details[0].message || error.response.message,
             duration: 3000,
@@ -479,4 +474,4 @@ const sendRequest = async(comment)=>{
         }).showToast();
         
     }
-}
+};

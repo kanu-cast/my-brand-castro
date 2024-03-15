@@ -39,6 +39,7 @@ Bg2.addEventListener('click', () =>{
     changeBg();
 
 });
+
 // =============== HAMBURGER AND NAV TOGGLE ==================
 
 var root = document.querySelector(':root');
@@ -52,7 +53,7 @@ const changeActiveItem = () =>{
     menuItems.forEach(item=>{
         item.classList.remove('active');
     })
-}
+};
 
 const toggleMenu = ()=>{
     show = !show
@@ -61,15 +62,15 @@ const toggleMenu = ()=>{
     }else{
         hideMenu();
     }
-}
+};
 const hideMenu=()=>{
     hiddenMenu.classList.remove('d-block');
     hiddenMenu.classList.add('d-none');
-}
+};
 const showMenu=()=>{
     hiddenMenu.classList.remove('d-none');
     hiddenMenu.classList.add('d-block');
-}
+};
 menu.addEventListener('click', ()=>{
     toggleMenu();
 });
@@ -130,7 +131,7 @@ var messageForm = document.querySelector('.message');
 var messageErrorBox = document.querySelector('.message-error-box');
 const myForm = document.querySelector("form[name=messageForm]");
 var myBtn = document.querySelector(".msg-btn");
-//// eventlisteners
+//// Event Listeners
 emailForm.addEventListener('keyup', function(evt){
     const { value } = evt.target;
     if(!isEmail(value)){
@@ -143,7 +144,7 @@ emailForm.addEventListener('keyup', function(evt){
     return email = isEmail(value)[0];
 });
 
-//// eventlisteners
+//// Event Listeners
 messageForm.addEventListener('keyup', function(evt){
     const { value } = evt.target;
     if(!validateBody(value)){
@@ -156,7 +157,6 @@ messageForm.addEventListener('keyup', function(evt){
     return body = value;
 });
 
-let isLoading = false
 myForm.addEventListener('submit', async function(evt){
     evt.preventDefault();
     if(isEmail(email) && body.length >= 12){
@@ -194,8 +194,7 @@ myForm.addEventListener('submit', async function(evt){
             onClick: function(){}
         }).showToast();
     }   
-
-})
+});
 
 const sendMessage = async()=>{
     try{
@@ -225,4 +224,4 @@ const sendMessage = async()=>{
         }).showToast();
         
     }
-}
+};

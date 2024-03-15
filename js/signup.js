@@ -37,7 +37,7 @@ var lastNameErrorBox = document.querySelector('.lastName-error-box');
 var passswordForm = document.querySelector('.password');
 var passswordErrorBox = document.querySelector('.password-error-box');
 
-//// eventlisteners
+//// Event Listeners
 emailForm.addEventListener('keyup', function(evt){
     console.log('this is log', evt.target.value);
     const { value } = evt.target;
@@ -50,7 +50,7 @@ emailForm.addEventListener('keyup', function(evt){
     emailErrorBox.classList.add('d-lg-none');
     return userEmail = checkIsEmail(value)[0];
 });
-//// eventlisteners
+//// Event Listeners
 passswordForm.addEventListener('keyup', function(evt){
     const { value } = evt.target;
     if(!validatePassword(value)){
@@ -62,7 +62,7 @@ passswordForm.addEventListener('keyup', function(evt){
     return password = value;
 
 })
-//// eventlisteners
+//// Event Listeners
 firstNameForm.addEventListener('keyup', function(evt){
     console.log('this is log', evt.target.value);
     const { value } = evt.target;
@@ -75,7 +75,7 @@ firstNameForm.addEventListener('keyup', function(evt){
     firstNameErrorBox.classList.add('d-lg-none');
     return firstName = value;
 });
-//// eventlisteners
+//// Event Listeners
 lastNameForm.addEventListener('keyup', function(evt){
     console.log('this is log', evt.target.value);
     const { value } = evt.target;
@@ -89,8 +89,7 @@ lastNameForm.addEventListener('keyup', function(evt){
     return lastName = value;
 });
 
-////// handing form submit and sending request
-
+////// Handing Form Submit & Sending Request
 const signupForm = document.querySelector("form[name=signupForm]");
 var myBtn = document.querySelector(".signup-btn");
 
@@ -100,12 +99,13 @@ signupForm.addEventListener('submit', async function(evt){
         const response = await sendRequest();
         const { status, msg } = response;
         if(response.msg && response.token){
+            // Setting User Tracking Info
             localStorage.setItem('token', response.token);
             localStorage.setItem('currentUser', response.user._id);
             localStorage.setItem('role', response.user.role);
             localStorage.setItem('firstName', response.user.firstName);
             localStorage.setItem('lastName', response.user.lastName);
-            
+            // Diplaying Toast Message 
             Toastify({
                 text: msg,
                 duration: 3000,
@@ -116,7 +116,7 @@ signupForm.addEventListener('submit', async function(evt){
                 position: "right",
                 stopOnFocus: true,
                 style: {
-                background: "#FFFFF"
+                    background: "#FFFFF"
                 },
                 onClick: function(){}
             }).showToast();
@@ -141,11 +141,10 @@ signupForm.addEventListener('submit', async function(evt){
         }).showToast();
     }   
 
-;})
+});
 
 const sendRequest = async()=>{
     try{
-        
         const {data} = await axios.post(
             `https://mybrand-api-p02i.onrender.com/api/auth/signup`,
             {firstName, lastName, password, email:userEmail},
@@ -156,7 +155,7 @@ const sendRequest = async()=>{
         })
         return data;
     }catch(error){
-        console.log(error);
+        console.error(error);
         Toastify({
             text: error.response.data.error.details[0].message || "Email already in use",
             duration: 3000,
@@ -173,4 +172,4 @@ const sendRequest = async()=>{
         }).showToast();
         
     }
-}
+};

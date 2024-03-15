@@ -1,10 +1,13 @@
 var messageId = '';
+// Tracking Current User Information
 const token = localStorage.getItem('token');
 const currentUser = localStorage.getItem('currentUser');
 const isAdmin = localStorage.getItem('role');
+// Security Check
 if(!currentUser || isAdmin !== 'admin' || !token){
   window.location.href = './login.html';
 }
+// Logout Option
 var logoutBtn = document.querySelectorAll('.logout');
 logoutBtn.forEach((btn, idx)=>{
   btn.addEventListener('click', ()=>{  
@@ -12,7 +15,7 @@ logoutBtn.forEach((btn, idx)=>{
       window.location.href = './login.html';
   });
 });
-//capturing all Messages from localstorage
+// Fetching Messages From Server
 (async function getMessages(){
     try{
         const response = await axios.get(
@@ -26,12 +29,9 @@ logoutBtn.forEach((btn, idx)=>{
             }
         );
         const allMessages = response.data.messages;
-        console.log('this is all messages ', allMessages)
+        // Iterating Through Returned Data From The Server
         const messageList = document.querySelector('.messagesList');
         allMessages.forEach((message, idx)=>{
-        const emailString = message.email > 20 ? message.email.substring(0,20)+'...' : message.email;
-        const bodyString = message.body > 20 ? message.body.substring(0,20)+'...' : message.body;
-
         const messageContent =
         `   <div class=" block card br-2 px-lg-3 py-2 py-md-3 py-lg-3 mt-1 mt-md-1 mt-lg-2 box-shadow pointer" id="${message._id}">
                 <div class="flex-centered-vertical"  style="width:100%;">
@@ -64,7 +64,8 @@ logoutBtn.forEach((btn, idx)=>{
             </div>
         `
         messageList.innerHTML += messageContent;
-        })
+        });
+        // Adding Event Listener to Delete Message
         const deleteButton = document.querySelectorAll('.delete-message');
         deleteButton.forEach((button)=>{    
             button.addEventListener('click',function(e){
@@ -72,12 +73,12 @@ logoutBtn.forEach((btn, idx)=>{
                 openModal(e);
             });
         });
+        // Adding Event Listener to Message Card
         const msgCards = document.querySelectorAll('.msg-card');
         msgCards.forEach((card)=>{    
             card.addEventListener('click', function(e){
                 e.preventDefault();
                 if(!e.target.classList.contains('delete-message')){
-                    console.log('damn id', e.target.id)
                     fetchSingleMsg(e);
                 }
             });
@@ -87,11 +88,11 @@ logoutBtn.forEach((btn, idx)=>{
     }
 })();
 
-/// delete logic here
+/// Delete Logic Here
 const modal = document.querySelector('.modal');
 const cancelButton = document.querySelector('.cancel');
 const deleteMessageButton = document.querySelector('.delete-button');
-// open modal
+// Open Modal
 const openModal = (e) =>{
     e.preventDefault();
     console.log('did', e.target.id)
@@ -100,24 +101,24 @@ const openModal = (e) =>{
     cancelButton.id = e.target.id;
     modal.id = e.target.id;
     messageId = e.target.id;
-}
-// read logic here createdAt
+};
+// Read Logic Here CreatedAt
 const msgModal = document.querySelector('.msg-modal');
 const cancelReplyButton = document.querySelector('.cancel-reply');
 const replyMessageButton = document.querySelector('.reply-button');
 const messageEmail = document.querySelector('.messageEmail');
 const messageBody = document.querySelector('.messageBody');
 
-// open read message modal
+// Open Read Message Modal
 const openReadModal = (e)=>{
     e.preventDefault();
     cancelReplyButton.id = e.target.id;
     msgModal.classList.remove('d-lg-none')
-}
+};
+// Fetching Single Message From Server
 const fetchSingleMsg = async(e)=>{
     e.preventDefault();
     const {id} = e.target;
-    console.log('destructur', id);
     try{
         const { data } = await axios.get(
           `https://mybrand-api-p02i.onrender.com/api/messages/${id}`,
@@ -129,23 +130,21 @@ const fetchSingleMsg = async(e)=>{
           }
         );
         if(data.status == 200){
-            console.log('data', data)
-             // handling Dates
+            // Handling Dates
             const days =['Sunday','Monday', 'Tuesday','Wednesday','Thursday','Friday','Saturday'];      
             const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-
+            // Adding Value Surfix
             const nthValue =(date)=>{
             if (date.toString().length > 2 || date.toString().length == 0) return 'undefined';
             if (Number(date) > 10 && Number(date) >= 20) return 'th';
             if(date.toString().length > 1 && Number(date) > 20){
                 const newDate = Number(date.toString().split('')[1]);
                 return newDate > 3 ? 'th' : newDate == 0 ? 'th' : newDate == 1 ? 'st' : newDate == 2 ? 'nd' : 'rd';
-            }
+            };
             const newDate = Number(date)
-            return newDate > 3 ? 'th' : newDate == 0 ? 'th' : newDate == 1 ? 'st' : newDate == 2 ? 'nd' : 'rd';
-            
-            }
-
+                return newDate > 3 ? 'th' : newDate == 0 ? 'th' : newDate == 1 ? 'st' : newDate == 2 ? 'nd' : 'rd';
+            };
+            // Setting Date Strings
             const publishedDate = new Date(data.message.createdAt);
             const PublishedDateString = `${days[publishedDate.getDay()]}, The ${publishedDate.getDate() + nthValue(publishedDate.getDate())} ${months[publishedDate.getMonth()]} ${publishedDate.getFullYear()}`
             openReadModal(e);
@@ -165,59 +164,57 @@ const fetchSingleMsg = async(e)=>{
            
         }
 
-        }catch(error){
-          console.log(error)
-        }
-}
+    }catch(error){
+        console.error(error);
+    }
+};
 const deleteMessage = async(id)=>{
     try{
-    const { data } = await axios.delete(
-      `https://mybrand-api-p02i.onrender.com/api/messages/${id}`,
-      {
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': 'Bearer ' + token
-        } 
-      }
-    );
-    if(data.status == 204){
-        Toastify({
-            text: 'Message deleted successfully',
-            duration: 3000,
-            destination: "https://github.com/apvarun/toastify-js",
-            newWindow: true,
-            close: true,
-            gravity: "top",
-            position: "right",
-            stopOnFocus: true,
-            style: {
-            background: "#FFFFF"
-            },
-            onClick: function(){}
-        }).showToast();
-       
-    }
-    // setTimeout(()=>{
-        window.location.reload();
-    // },3000);
-    }catch(error){
-      console.log(error)
-      Toastify({
-        text: error.data,
-        duration: 3000,
-        destination: "https://github.com/apvarun/toastify-js",
-        newWindow: true,
-        close: true,
-        gravity: "top",
-        position: "right",
-        stopOnFocus: true,
-        style: {
-            background: "#e84949"
-        },
-        onClick: function(){}
-    }).showToast();
-    }
-}
+        const { data } = await axios.delete(
+        `https://mybrand-api-p02i.onrender.com/api/messages/${id}`,
+            {
+                headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + token
+                } 
+            }
+        );
+        if(data.status == 204){
+            Toastify({
+                text: 'Message deleted successfully',
+                duration: 3000,
+                destination: "https://github.com/apvarun/toastify-js",
+                newWindow: true,
+                close: true,
+                gravity: "top",
+                position: "right",
+                stopOnFocus: true,
+                style: {
+                background: "#FFFFF"
+                },
+                onClick: function(){}
+            }).showToast();
+        
+        }
+            window.location.reload();
+        }catch(error){
+            console.error(error)
+            Toastify({
+                text: error.data,
+                duration: 3000,
+                destination: "https://github.com/apvarun/toastify-js",
+                newWindow: true,
+                close: true,
+                gravity: "top",
+                position: "right",
+                stopOnFocus: true,
+                style: {
+                    background: "#e84949"
+                },
+                onClick: function(){}
+            }).showToast();
+        }
+};
 
 // close modal
 const closeModal = (e) =>{
@@ -227,13 +224,14 @@ const closeModal = (e) =>{
     if(e.target.classList.contains('msg-modal') || e.target.classList.contains('cancel-reply') || e.target.classList.contains('reply-button')){
         msgModal.classList.add('d-lg-none')
     }
-  }
-modal.addEventListener('click', closeModal)
+};
+// More Event Listeners
+modal.addEventListener('click', closeModal);
 msgModal.addEventListener('click', closeModal);
 cancelReplyButton.addEventListener('click', closeModal);
-
+// Deleting Message
 deleteMessageButton.addEventListener('click', function(e){
     e.preventDefault();
     deleteMessage(messageId);
-    closeModal(e)
+    closeModal(e);
 })

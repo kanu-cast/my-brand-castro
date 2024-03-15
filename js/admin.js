@@ -1,8 +1,22 @@
+// Tracking Current User Information
 const adminToken = localStorage.getItem('token');
 const currentAdmin = localStorage.getItem('currentUser');
 const adminRole = localStorage.getItem('role');
 const adminFirstName = localStorage.getItem('firstName');
 const adminLastName = localStorage.getItem('lastName');
+// Security Check
+if(!currentAdmin|| adminRole !== 'admin' || !adminToken){
+  window.location.href = './login.html';
+}
+// Logout Option
+var logoutBtn = document.querySelectorAll('.logout');
+logoutBtn.forEach((btn, idx)=>{
+  btn.addEventListener('click', ()=>{  
+      localStorage.clear();
+      window.location.href = './login.html';
+  });
+});
+
 
 const adminFullName = adminFirstName+" "+adminLastName;
 

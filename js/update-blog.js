@@ -134,10 +134,9 @@ const updateBlog = async (payload)=>{
                 window.location.href =`./read-blog.html?id=${data.blog._id}`
             }, 2000)
         }
-        console.log('this is responseData', data);
         return data;
     }catch(error){
-        console.log(error);
+        console.error(error);
         Toastify({
             text: error.response.data.error.details[0].message ||  error.response.data.error || error.response.data ||  error.message,
             duration: 3000,
@@ -154,15 +153,14 @@ const updateBlog = async (payload)=>{
         }).showToast();
         
     }
-}
-
+};
 
 form.addEventListener('submit', function(e){
 	e.preventDefault();
 	const data = new FormData(e.target);
     const blogTitle = data.get('blogTitle');
     const blogImage = data.get('blogImage');
-    const blogBody = editor1.getText();
+    const blogBody = editor1.getHTMLCode();
 
     const payload = {
         title: blogTitle,
