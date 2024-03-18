@@ -33,6 +33,9 @@ body{
     font-family: 'Poppins', sans-serif;
     color: var(--color-dark);
     background: var(--color-light);
+    position: relative;
+    min-height: 100vh !important;
+    padding-bottom: 6rem;
 }
 .dashboard-body{
     padding-left: 300px;
@@ -68,6 +71,11 @@ body{
     background:  hsl(252, 30%, 15%) !important;
     color: white;
 }
+footer{
+    position: absolute;
+    width: 100% !important;
+    bottom: 0;
+}
 .style-none{
     text-decoration: none !important;
     list-style: none !important;
@@ -77,7 +85,8 @@ body{
     box-shadow: 0px 0px 4px 2px rgba(58, 36, 36, 0.2) !important;
 }
 .box-shadow-red{
-    box-shadow: 0px 0px 2px 1px #E84949 !important;
+    box-shadow: 0 0 1rem #E84949 !important;
+  
 }
 .card-body{
     background: var(--color-primary);
