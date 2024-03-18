@@ -87,7 +87,28 @@ menuItems.forEach(item =>{
 
 (function () {
     const strorageTheme = localStorage.getItem('theme');
-    if(strorageTheme == 'light'){
+    if(strorageTheme){
+        if(strorageTheme == 'light'){   
+            darkColorLightness = '17%';
+            whiteColorLightness = '100%';
+            lightColorLightness = '95%';
+            // add active class
+            Bg1.classList.add('active');
+            // remove active class from the other button
+            Bg2.classList.remove('active');
+            changeBg();
+        }else{
+            darkColorLightness = '95%';
+            whiteColorLightness = '10%';
+            lightColorLightness = '0%';
+            // add active class
+            Bg2.classList.add('active');
+            // remove active class from the other button
+            Bg1.classList.remove('active');
+            changeBg();
+        }
+    }else{  
+        localStorage.setItem('theme', 'light');
         darkColorLightness = '17%';
         whiteColorLightness = '100%';
         lightColorLightness = '95%';
@@ -95,15 +116,6 @@ menuItems.forEach(item =>{
         Bg1.classList.add('active');
         // remove active class from the other button
         Bg2.classList.remove('active');
-        changeBg();
-    }else{
-        darkColorLightness = '95%';
-        whiteColorLightness = '10%';
-        lightColorLightness = '0%';
-        // add active class
-        Bg2.classList.add('active');
-        // remove active class from the other button
-        Bg1.classList.remove('active');
         changeBg();
     }
 })();
