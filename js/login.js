@@ -48,10 +48,10 @@ passswordForm.addEventListener('keyup', function(evt){
 
 ////// handing form submit and sending request
 
-const signupForm = document.querySelector("form[name=signinForm]");
+const signinForm = document.querySelector("form[name=signinForm]");
 var myBtn = document.querySelector(".signup-btn");
 
-signupForm.addEventListener('submit', async function(evt){
+signinForm.addEventListener('submit', async function(evt){
     evt.preventDefault();
     if(checkIsEmail(userEmail) && password.length > 3){
         const response = await sendRequest();
