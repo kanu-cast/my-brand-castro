@@ -180,36 +180,36 @@ const openModal = (e) =>{
 }
 
 const deleteBlog = async(id)=>{
-    try{
+  try{
     const resData = await axios.delete(
       `https://mybrand-api-p02i.onrender.com/api/blogs/${id}`,
       {
         headers: {
           'Content-Type': 'application/json',
           'Authorization': 'Bearer ' + token
-        } 
+        }
       }
     );
     if(resData.status == 204){
-        Toastify({
-            text: 'Blog deleted successfully',
-            duration: 3000,
-            destination: "https://github.com/apvarun/toastify-js",
-            newWindow: true,
-            close: true,
-            gravity: "top",
-            position: "right",
-            stopOnFocus: true,
-            style: {
-            background: "#FFFFF"
-            },
-            onClick: function(){}
+      Toastify({
+          text: 'Blog deleted successfully',
+          duration: 3000,
+          destination: "https://github.com/apvarun/toastify-js",
+          newWindow: true,
+          close: true,
+          gravity: "top",
+          position: "right",
+          stopOnFocus: true,
+          style: {
+          background: "#FFFFF"
+          },
+          onClick: function(){}
         }).showToast();
-    }
-    setTimeout(()=>{
-      window.location.reload();
-    },2000);
-    }catch(error){
+      }
+      setTimeout(()=>{
+        window.location.reload();
+      },2000);
+  }catch(error){
       console.log(error)
       Toastify({
         text: error.data,
@@ -221,17 +221,17 @@ const deleteBlog = async(id)=>{
         position: "right",
         stopOnFocus: true,
         style: {
-            background: "#e84949"
+          background: "#e84949"
         },
         onClick: function(){}
-    }).showToast();
+      }).showToast();
     }
-}
+  }
 
 // close modal
 const closeModal = (e) =>{
   if(e.target.classList.contains('modal') || e.target.classList.contains('cancel') || e.target.classList.contains('delete-button')){
-      modal.classList.add('d-lg-none')
+    modal.classList.add('d-lg-none')
   }
 }
 modal.addEventListener('click', closeModal);
