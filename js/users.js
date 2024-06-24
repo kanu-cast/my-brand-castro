@@ -19,7 +19,7 @@ logoutBtn.forEach((btn, idx)=>{
 (async function getUsers(){
     try{
         const response = await axios.get(
-            `https://mybrand-api-p02i.onrender.com/api/users`,
+            `https://mybrand-api-eaxe.onrender.com/api/users`,
             {
                 headers: {
                     'Content-Type': 'application/json',

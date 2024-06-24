@@ -12,7 +12,7 @@ const currentId = searchParams.get('id');
 ( async function getSingleBlog(){
     try {
         // fetching blog
-        const response = await axios.get(`https://mybrand-api-p02i.onrender.com/api/blogs/${currentId}`);
+        const response = await axios.get(`https://mybrand-api-eaxe.onrender.com/api/blogs/${currentId}`);
 
         const blog = response.data.blog;
         // handling Dates
@@ -218,7 +218,7 @@ const likeBlog = async()=>{
     try{
         if(token){
             const {data} = await axios.put(
-                `https://mybrand-api-p02i.onrender.com/api/blogs/${currentId}/like`,{},
+                `https://mybrand-api-eaxe.onrender.com/api/blogs/${currentId}/like`,{},
                 {
                     headers: {
                         'Content-Type': 'application/json',
@@ -280,7 +280,7 @@ const likeComment = async(commentId)=>{
     try{
         if(token){
             const {data} = await axios.put(
-                `https://mybrand-api-p02i.onrender.com/api/${currentId}/comments/${commentId}/like`,{},
+                `https://mybrand-api-eaxe.onrender.com/api/${currentId}/comments/${commentId}/like`,{},
                 {
                     headers: {
                         'Content-Type': 'application/json',
@@ -343,7 +343,7 @@ const disLikeComment = async(commentId)=>{
     try{
         if(token){
             const {data} = await axios.put(
-                `https://mybrand-api-p02i.onrender.com/api/${currentId}/comments/${commentId}/dislike`,{},
+                `https://mybrand-api-eaxe.onrender.com/api/${currentId}/comments/${commentId}/dislike`,{},
                 {
                     headers: {
                         'Content-Type': 'application/json',
@@ -432,7 +432,7 @@ const sendRequest = async(comment)=>{
     try{
         if(token){
             const {data} = await axios.post(
-                `https://mybrand-api-p02i.onrender.com/api/${currentId}/comments`,
+                `https://mybrand-api-eaxe.onrender.com/api/${currentId}/comments`,
 
                 {body: comment},
                 {

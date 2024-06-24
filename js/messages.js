@@ -19,7 +19,7 @@ logoutBtn.forEach((btn, idx)=>{
 (async function getMessages(){
     try{
         const response = await axios.get(
-            `https://mybrand-api-p02i.onrender.com/api/messages`,
+            `https://mybrand-api-eaxe.onrender.com/api/messages`,
             {
                 headers: {
                     'Content-Type': 'application/json',
@@ -121,7 +121,7 @@ const fetchSingleMsg = async(e)=>{
     const {id} = e.target;
     try{
         const { data } = await axios.get(
-          `https://mybrand-api-p02i.onrender.com/api/messages/${id}`,
+          `https://mybrand-api-eaxe.onrender.com/api/messages/${id}`,
           {
             headers: {
               'Content-Type': 'application/json',
@@ -171,7 +171,7 @@ const fetchSingleMsg = async(e)=>{
 const deleteMessage = async(id)=>{
     try{
         const { data } = await axios.delete(
-        `https://mybrand-api-p02i.onrender.com/api/messages/${id}`,
+        `https://mybrand-api-eaxe.onrender.com/api/messages/${id}`,
             {
                 headers: {
                 'Content-Type': 'application/json',
