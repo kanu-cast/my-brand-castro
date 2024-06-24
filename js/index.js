@@ -211,7 +211,7 @@ myForm.addEventListener('submit', async function(evt){
 const sendMessage = async()=>{
     try{
         const {data} = await axios.post(
-            `https://mybrand-api-p02i.onrender.com/api/messages`,
+            `https://mybrand-api-eaxe.onrender.com/api/messages`,
             {email, body},
             {
             headers: {
