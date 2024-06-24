@@ -13,7 +13,7 @@
     const publishedDate = new Date(blog.published);
     const PublishedDateString = `${publishedDate.getDate()} ${months[publishedDate.getMonth()].substring(0,3)} ${publishedDate.getFullYear()}`
    //displaying blog on UI
-   const blogTitleString = blog.title.length > 40 ? blog.title.substring(0,40)+'...': blog.title;
+   const blogTitleString = blog.title.length > 80 ? blog.title.substring(0,80)+'...': blog.title;
     const blogCard = `
         <li>
         <div class=" my-3 my-md-3 my-lg-4 py-lg-0 inline-block" style="width: 16rem;">
