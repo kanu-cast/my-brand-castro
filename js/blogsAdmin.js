@@ -16,7 +16,7 @@
   //capturing all blogs from localstorage
   (async function getBlogs(){
     try{
-      const response = await axios.get(`https://mybrand-api-p02i.onrender.com/api/blogs`);
+      const response = await axios.get(`https://mybrand-api-eaxe.onrender.com/api/blogs`);
       const allBlogs = response.data.blogs;
       const blogsList = document.querySelector('.blogs-list')
       allBlogs.forEach((blog , idx)=>{
@@ -182,7 +182,7 @@ const openModal = (e) =>{
 const deleteBlog = async(id)=>{
   try{
     const resData = await axios.delete(
-      `https://mybrand-api-p02i.onrender.com/api/blogs/${id}`,
+      `https://mybrand-api-eaxe.onrender.com/api/blogs/${id}`,
       {
         headers: {
           'Content-Type': 'application/json',

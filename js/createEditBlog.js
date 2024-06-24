@@ -54,7 +54,7 @@ var textAreaErrorBox = document.querySelector('.textarea-error-box');
 const createBlog = async (payload)=>{
     try{
         const { data } = await axios.post(  
-            `https://mybrand-api-p02i.onrender.com/api/blogs`,
+            `https://mybrand-api-eaxe.onrender.com/api/blogs`,
             {
                 title: payload.title,
                 body: payload.body,
