@@ -106,7 +106,7 @@ signinForm.addEventListener('submit', async function(evt){
 const sendRequest = async()=>{
     try{
         const {data} = await axios.post(
-            `https://mybrand-api-p02i.onrender.com/api/auth/signin`,
+            `https://mybrand-api-eaxe.onrender.com/api/auth/signin`,
             {email:userEmail, password },
             {
             headers: {

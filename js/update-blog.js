@@ -23,7 +23,7 @@ logoutBtn.forEach((btn, idx)=>{
 });
 // fetch blog from backend api
 (async function getBlog(){
-    const response = await axios.get(`https://mybrand-api-p02i.onrender.com/api/blogs/${currentId}`);   
+    const response = await axios.get(`https://mybrand-api-eaxe.onrender.com/api/blogs/${currentId}`);   
     const blog = response.data.blog;    
     console.log('this is fetched blog', blog);
 
@@ -103,7 +103,7 @@ var textAreaErrorBox = document.querySelector('.textarea-error-box');
 const updateBlog = async (payload)=>{
     try{
         const { data } = await axios.put(
-            `https://mybrand-api-p02i.onrender.com/api/blogs/${currentId}`,
+            `https://mybrand-api-eaxe.onrender.com/api/blogs/${currentId}`,
             {
                 title: payload.title,
                 body: payload.body,
